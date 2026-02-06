@@ -32,6 +32,7 @@ import {
     EditActionsProps,
     CanAccess,
 } from 'react-admin';
+import { TextInput as SaltTextInput } from 'ra-ui-salt';
 import {
     Box,
     BoxProps,
@@ -110,10 +111,11 @@ const PostEdit = () => (
                     fullWidth
                 >
                     <TextInput InputProps={{ disabled: true }} source="id" />
-                    <TextInput
+                    {/* Salt DS TextInput - migrated from MUI */}
+                    <SaltTextInput
                         source="title"
+                        label="Title (Salt DS)"
                         validate={required()}
-                        resettable
                     />
                 </SanitizedBox>
                 <TextInput
