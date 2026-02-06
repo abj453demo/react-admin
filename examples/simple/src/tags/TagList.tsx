@@ -13,10 +13,10 @@ import {
     ListItem,
     ListItemText,
     Collapse,
-    Card,
     Stack,
     ListItemButton,
 } from '@mui/material';
+import { Card } from '@salt-ds/core';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
