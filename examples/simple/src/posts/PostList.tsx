@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BookIcon from '@mui/icons-material/Book';
+import { DocumentIcon } from '@salt-ds/icons';
 import { Chip, useMediaQuery } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 import lodashGet from 'lodash/get.js';
@@ -33,7 +33,7 @@ import {
 
 import ResetViewsButton from './ResetViewsButton';
 
-export const PostIcon = BookIcon;
+export const PostIcon = DocumentIcon;
 
 const QuickFilter = ({
     label,

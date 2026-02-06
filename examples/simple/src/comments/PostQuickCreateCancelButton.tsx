@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Button } from '@mui/material';
-import IconCancel from '@mui/icons-material/Cancel';
+import { CloseIcon } from '@salt-ds/icons';
 
 import { useTranslate } from 'react-admin';
 
@@ -16,7 +16,7 @@ const PostQuickCreateCancelButton = ({
             sx={{ margin: '10px 24px', position: 'relative' }}
             onClick={onClick}
         >
-            <IconCancel sx={{ paddingRight: '0.5em' }} />
+            <CloseIcon style={{ paddingRight: '0.5em' }} />
             {label && translate(label, { _: label })}
         </Button>
     );

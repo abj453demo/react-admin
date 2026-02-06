@@ -1,4 +1,4 @@
-import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
+import { MessageIcon } from '@salt-ds/icons';
 import CommentCreate from './CommentCreate';
 import CommentEdit from './CommentEdit';
 import CommentList from './CommentList';
@@ -9,5 +9,5 @@ export default {
     create: CommentCreate,
     edit: CommentEdit,
     show: CommentShow,
-    icon: ChatBubbleIcon,
+    icon: MessageIcon,
 };
