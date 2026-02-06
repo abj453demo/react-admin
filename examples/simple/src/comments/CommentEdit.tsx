@@ -3,12 +3,10 @@ import {
     Box,
     Card,
     Typography,
-    Dialog,
-    DialogContent,
     TextField as MuiTextField,
-    DialogActions,
     Button,
 } from '@mui/material';
+import { Dialog, DialogContent, DialogActions } from '@salt-ds/core';
 import {
     AutocompleteInput,
     CreateButton,
@@ -89,7 +87,7 @@ const CreatePost = () => {
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
                     <MuiTextField

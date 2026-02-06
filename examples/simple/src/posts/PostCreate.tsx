@@ -28,7 +28,8 @@ import {
     CanAccess,
 } from 'react-admin';
 import { useFormContext, useWatch } from 'react-hook-form';
-import { Button, Dialog, DialogActions, DialogContent } from '@mui/material';
+import { Button } from '@mui/material';
+import { Dialog, DialogActions, DialogContent } from '@salt-ds/core';
 
 const PostCreateToolbar = () => {
     const notify = useNotify();
@@ -232,7 +233,7 @@ const CreateUser = () => {
     };
 
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
                     <TextInput
