@@ -7,8 +7,8 @@ import {
     DialogContent,
     TextField as MuiTextField,
     DialogActions,
-    Button,
 } from '@mui/material';
+import { Button } from '@salt-ds/core';
 import {
     AutocompleteInput,
     CreateButton,
@@ -100,7 +100,9 @@ const CreatePost = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
+                    <Button type="submit" sentiment="accented">
+                        Save
+                    </Button>
                     <Button onClick={onCancel}>Cancel</Button>
                 </DialogActions>
             </form>
