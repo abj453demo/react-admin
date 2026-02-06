@@ -6,11 +6,11 @@ import {
     CardActions,
     CardContent,
     CardHeader,
-    Grid,
     Typography,
     useMediaQuery,
     Theme,
 } from '@mui/material';
+import { GridLayout } from '@salt-ds/core';
 import jsonExport from 'jsonexport/dist';
 import {
     ListBase,
@@ -68,9 +68,9 @@ const CommentGrid = () => {
 
     if (!data) return null;
     return (
-        <Grid spacing={2} container>
+        <GridLayout columns={3} gap={2}>
             {data.map(record => (
-                <Grid item key={record.id} sm={12} md={6} lg={4}>
+                <div key={record.id}>
                     <Card
                         sx={{
                             height: '100%',
@@ -130,9 +130,9 @@ const CommentGrid = () => {
                             <ShowButton record={record} />
                         </CardActions>
                     </Card>
-                </Grid>
+                </div>
             ))}
-        </Grid>
+        </GridLayout>
     );
 };
 
