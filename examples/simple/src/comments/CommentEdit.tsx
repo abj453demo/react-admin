@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {
     Box,
-    Card,
     Typography,
     Dialog,
     DialogContent,
@@ -9,6 +8,7 @@ import {
     DialogActions,
     Button,
 } from '@mui/material';
+import { Card } from '@salt-ds/core';
 import {
     AutocompleteInput,
     CreateButton,
@@ -123,7 +123,7 @@ const CommentEdit = props => {
                         <CreateButton resource="posts" label="Create post" />
                     </TopToolbar>
                 </Box>
-                <Card sx={{ marginTop: '1em', maxWidth: '30em' }}>
+                <Card style={{ marginTop: '1em', maxWidth: '30em' }}>
                     {record && (
                         <SimpleForm
                             resource={resource}
