@@ -17,7 +17,7 @@
 | 1 | Typography Swap | ⏳ Pending | | |
 | 1 | Button Swap | ⏳ Pending | | |
 | 1 | Avatar Swap | ⏳ Pending | | |
-| 1 | Chip to Pill Swap | ⏳ Pending | | |
+| 1 | Chip to Pill Swap | ✅ Success | MUI Chip → Salt Pill in QuickFilter component. ChipField (react-admin) unchanged. | [after](docs/migration-recordings/swap_chip_to_pill_after.webm) |
 | 1 | Stack to StackLayout Swap | ⏳ Pending | | |
 | 1 | useMediaQuery Swap | ⏳ Pending | | |
 | 2 | Grid to FlowLayout (CommentList) | ⏳ Pending | | |
