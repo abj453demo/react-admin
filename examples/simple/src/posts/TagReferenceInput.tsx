@@ -9,12 +9,12 @@ import {
 } from 'react-admin';
 import {
     Box,
-    Button,
     Dialog,
     DialogContent,
     DialogActions,
     TextField as MuiTextField,
 } from '@mui/material';
+import { Button } from '@salt-ds/core';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
@@ -52,7 +52,7 @@ const TagReferenceInput = ({
             <Button
                 name="change-filter"
                 onClick={handleChangePublishedFilter}
-                sx={{ margin: '0 24px', position: 'relative' }}
+                style={{ margin: '0 24px', position: 'relative' }}
             >
                 Filter {published ? 'Unpublished' : 'Published'} Tags
             </Button>
@@ -92,7 +92,9 @@ const CreateTag = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
+                    <Button type="submit" sentiment="accented">
+                        Save
+                    </Button>
                     <Button onClick={onCancel}>Cancel</Button>
                 </DialogActions>
             </form>

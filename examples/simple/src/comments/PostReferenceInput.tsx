@@ -2,12 +2,12 @@ import * as React from 'react';
 import { Fragment, useState, useCallback } from 'react';
 import { useWatch } from 'react-hook-form';
 import {
-    Button,
     Dialog,
     DialogTitle,
     DialogContent,
     DialogActions,
 } from '@mui/material';
+import { Button } from '@salt-ds/core';
 import {
     ReferenceInput,
     SelectInput,
@@ -54,7 +54,7 @@ const PostReferenceInput = () => {
                 <Fragment>
                     <Button
                         data-testid="button-show-post"
-                        sx={{ margin: '10px 24px', position: 'relative' }}
+                        style={{ margin: '10px 24px', position: 'relative' }}
                         onClick={handleShowClick}
                     >
                         {translate('ra.action.show')}
