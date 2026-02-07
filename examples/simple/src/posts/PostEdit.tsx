@@ -36,11 +36,9 @@ import {
     Box,
     BoxProps,
     Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
     TextField as MuiTextField,
 } from '@mui/material';
+import { Dialog, DialogActions, DialogContent } from '@salt-ds/core';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 
@@ -60,7 +58,7 @@ const CreateCategory = ({
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
                     <MuiTextField
