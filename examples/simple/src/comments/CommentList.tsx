@@ -1,13 +1,7 @@
 import * as React from 'react';
 import PersonIcon from '@mui/icons-material/Person';
-import {
-    Card,
-    CardActions,
-    CardContent,
-    CardHeader,
-    Grid,
-} from '@mui/material';
-import { Avatar, FlowLayout, Text } from '@salt-ds/core';
+import { Avatar, Card, FlowLayout, StackLayout, Text } from '@salt-ds/core';
+import styles from './CommentList.module.css';
 import { useIsSmall } from '../utils/useResponsive';
 import jsonExport from 'jsonexport/dist';
 import {
@@ -66,63 +60,70 @@ const CommentGrid = () => {
 
     if (!data) return null;
     return (
-        <Grid spacing={2} container>
+        <FlowLayout gap={2} wrap className={styles.commentGrid}>
             {data.map(record => (
-                <Grid item key={record.id} sm={12} md={6} lg={4}>
-                    <Card
-                        sx={{
-                            height: '100%',
-                            display: 'flex',
-                            flexDirection: 'column',
-                        }}
-                    >
-                        <CardHeader
-                            className="comment"
-                            title={
-                                <TextField
+                <div key={record.id} className={styles.commentCardWrapper}>
+                    <Card className={styles.commentCard}>
+                        <StackLayout gap={1}>
+                            {/* Header section */}
+                            <FlowLayout
+                                gap={1}
+                                align="center"
+                                className={styles.cardHeader}
+                            >
+                                <Avatar fallbackIcon={<PersonIcon />} />
+                                <StackLayout
+                                    gap={0}
+                                    className={styles.cardHeaderText}
+                                >
+                                    <Text styleAs="h4">
+                                        <TextField
+                                            record={record}
+                                            source="author.name"
+                                        />
+                                    </Text>
+                                    <Text styleAs="label" color="secondary">
+                                        <DateField
+                                            record={record}
+                                            source="created_at"
+                                        />
+                                    </Text>
+                                </StackLayout>
+                            </FlowLayout>
+
+                            {/* Content section - body */}
+                            <div className={styles.cardContent}>
+                                <span className={styles.bodyText}>
+                                    <TextField record={record} source="body" />
+                                </span>
+                            </div>
+
+                            {/* Content section - post reference */}
+                            <div className={styles.cardContentGrow}>
+                                <Text as="span" data-testid="postLink">
+                                    {translate('comment.list.about')}&nbsp;
+                                </Text>
+                                <ReferenceField
                                     record={record}
-                                    source="author.name"
+                                    source="post_id"
+                                    reference="posts"
                                 />
-                            }
-                            subheader={
-                                <DateField
-                                    record={record}
-                                    source="created_at"
-                                />
-                            }
-                            avatar={<Avatar fallbackIcon={<PersonIcon />} />}
-                        />
-                        <CardContent>
-                            <TextField
-                                record={record}
-                                source="body"
-                                sx={{
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    display: '-webkit-box',
-                                    WebkitLineClamp: 2,
-                                    WebkitBoxOrient: 'vertical',
-                                }}
-                            />
-                        </CardContent>
-                        <CardContent sx={{ flexGrow: 1 }}>
-                            <Text as="span" data-testid="postLink">
-                                {translate('comment.list.about')}&nbsp;
-                            </Text>
-                            <ReferenceField
-                                record={record}
-                                source="post_id"
-                                reference="posts"
-                            />
-                        </CardContent>
-                        <CardActions sx={{ justifyContent: 'flex-end' }}>
-                            <EditButton record={record} />
-                            <ShowButton record={record} />
-                        </CardActions>
+                            </div>
+
+                            {/* Actions section */}
+                            <FlowLayout
+                                gap={1}
+                                justify="end"
+                                className={styles.cardActions}
+                            >
+                                <EditButton record={record} />
+                                <ShowButton record={record} />
+                            </FlowLayout>
+                        </StackLayout>
                     </Card>
-                </Grid>
+                </div>
             ))}
-        </Grid>
+        </FlowLayout>
     );
 };
 

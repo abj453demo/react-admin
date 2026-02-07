@@ -1,0 +1,66 @@
+.commentGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--salt-spacing-200);
+}
+
+.commentCardWrapper {
+    min-width: 300px;
+    flex: 1 1 300px;
+    max-width: 100%;
+}
+
+@media (min-width: 900px) {
+    .commentCardWrapper {
+        max-width: calc(50% - var(--salt-spacing-100));
+    }
+}
+
+@media (min-width: 1200px) {
+    .commentCardWrapper {
+        max-width: calc(33.333% - var(--salt-spacing-100));
+    }
+}
+
+.commentCard {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--salt-spacing-100);
+    padding: var(--salt-spacing-100);
+}
+
+.cardHeaderText {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.cardContent {
+    padding: var(--salt-spacing-100);
+}
+
+.cardContentGrow {
+    padding: var(--salt-spacing-100);
+    flex-grow: 1;
+}
+
+.bodyText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.cardActions {
+    padding: var(--salt-spacing-100);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--salt-spacing-100);
+}
