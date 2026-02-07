@@ -14,22 +14,22 @@ import {
     ListItemText,
     Collapse,
     Card,
-    Stack,
     ListItemButton,
 } from '@mui/material';
+import { StackLayout } from '@salt-ds/core';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const TagList = () => (
     <ListBase perPage={1000}>
-        <Stack>
+        <StackLayout gap={0}>
             <ListActions />
             <Box maxWidth="20em" marginTop="1em">
                 <Card>
                     <Tree />
                 </Card>
             </Box>
-        </Stack>
+        </StackLayout>
     </ListBase>
 );
 
