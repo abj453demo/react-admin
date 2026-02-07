@@ -12,10 +12,9 @@ import {
     ListItem,
     ListItemText,
     Collapse,
-    Card,
     ListItemButton,
 } from '@mui/material';
-import { StackLayout } from '@salt-ds/core';
+import { Card, StackLayout } from '@salt-ds/core';
 import { ChevronUpIcon, ChevronDownIcon } from '@salt-ds/icons';
 
 const TagList = () => (

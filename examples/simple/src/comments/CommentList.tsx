@@ -1,15 +1,7 @@
 import * as React from 'react';
 import { UserIcon } from '@salt-ds/icons';
-import {
-    Card,
-    CardActions,
-    CardContent,
-    CardHeader,
-    Grid,
-    useMediaQuery,
-    Theme,
-} from '@mui/material';
-import { Avatar, Text } from '@salt-ds/core';
+import { Grid, useMediaQuery, Theme } from '@mui/material';
+import { Avatar, Card, Text } from '@salt-ds/core';
 import jsonExport from 'jsonexport/dist';
 import {
     ListBase,
@@ -71,33 +63,47 @@ const CommentGrid = () => {
             {data.map(record => (
                 <Grid item key={record.id} sm={12} md={6} lg={4}>
                     <Card
-                        sx={{
+                        style={{
                             height: '100%',
                             display: 'flex',
                             flexDirection: 'column',
                         }}
                     >
-                        <CardHeader
+                        {/* Card Header */}
+                        <div
                             className="comment"
-                            title={
-                                <TextField
-                                    record={record}
-                                    source="author.name"
-                                />
-                            }
-                            subheader={
-                                <DateField
-                                    record={record}
-                                    source="created_at"
-                                />
-                            }
-                            avatar={
-                                <Avatar>
-                                    <UserIcon />
-                                </Avatar>
-                            }
-                        />
-                        <CardContent>
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                padding: '16px',
+                                gap: '16px',
+                            }}
+                        >
+                            <Avatar>
+                                <UserIcon />
+                            </Avatar>
+                            <div>
+                                <div style={{ fontWeight: 500 }}>
+                                    <TextField
+                                        record={record}
+                                        source="author.name"
+                                    />
+                                </div>
+                                <div
+                                    style={{
+                                        color: 'var(--salt-content-secondary-foreground)',
+                                        fontSize: '0.875rem',
+                                    }}
+                                >
+                                    <DateField
+                                        record={record}
+                                        source="created_at"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        {/* Card Content - Body */}
+                        <div style={{ padding: '0 16px 16px' }}>
                             <TextField
                                 record={record}
                                 source="body"
@@ -109,8 +115,9 @@ const CommentGrid = () => {
                                     WebkitBoxOrient: 'vertical',
                                 }}
                             />
-                        </CardContent>
-                        <CardContent sx={{ flexGrow: 1 }}>
+                        </div>
+                        {/* Card Content - Reference */}
+                        <div style={{ padding: '0 16px 16px', flexGrow: 1 }}>
                             <Text as="span" data-testid="postLink">
                                 {translate('comment.list.about')}&nbsp;
                             </Text>
@@ -119,11 +126,19 @@ const CommentGrid = () => {
                                 source="post_id"
                                 reference="posts"
                             />
-                        </CardContent>
-                        <CardActions sx={{ justifyContent: 'flex-end' }}>
+                        </div>
+                        {/* Card Actions */}
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                padding: '8px',
+                                gap: '8px',
+                            }}
+                        >
                             <EditButton record={record} />
                             <ShowButton record={record} />
-                        </CardActions>
+                        </div>
                     </Card>
                 </Grid>
             ))}
