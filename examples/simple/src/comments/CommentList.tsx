@@ -7,7 +7,7 @@ import {
     CardHeader,
     Grid,
 } from '@mui/material';
-import { Avatar, Text } from '@salt-ds/core';
+import { Avatar, FlowLayout, Text } from '@salt-ds/core';
 import { useIsSmall } from '../utils/useResponsive';
 import jsonExport from 'jsonexport/dist';
 import {

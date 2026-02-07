@@ -19,6 +19,8 @@ import {
 } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import { Card as SaltCard, FlowLayout, StackLayout, Text } from '@salt-ds/core';
+import { Tree as SaltTree } from '@salt-ds/lab';
 
 const TagList = () => (
     <ListBase perPage={1000}>

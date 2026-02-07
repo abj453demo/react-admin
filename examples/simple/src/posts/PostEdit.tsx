@@ -39,6 +39,9 @@ import {
     DialogHeader,
     DialogContent,
     DialogActions,
+    FormField,
+    FormFieldLabel,
+    Input,
 } from '@salt-ds/core';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
