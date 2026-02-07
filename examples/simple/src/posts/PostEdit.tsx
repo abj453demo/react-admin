@@ -70,7 +70,11 @@ const CreateCategory = ({
                         <FormFieldLabel>New Category</FormFieldLabel>
                         <Input
                             value={value}
-                            onChange={event => setValue(event.target.value)}
+                            onChange={event =>
+                                setValue(
+                                    (event.target as HTMLInputElement).value
+                                )
+                            }
                             autoFocus
                         />
                     </FormField>
