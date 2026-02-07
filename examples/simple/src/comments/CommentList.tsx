@@ -94,7 +94,7 @@ const CommentGrid = () => {
                             }
                             avatar={
                                 <Avatar>
-                                    <UserIcon size={1} />
+                                    <UserIcon />
                                 </Avatar>
                             }
                         />
