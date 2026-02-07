@@ -1,45 +1,10 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import { H4, Text } from '@salt-ds/core';
-
-const PREFIX = 'Aside';
-
-const classes = {
-    root: `${PREFIX}-root`,
-};
-
-const Root = styled('div')(({ theme }) => ({
-    [`&.${classes.root}`]: {
-        [theme.breakpoints.up('sm')]: {
-            width: 200,
-            margin: '1em',
-        },
-        [theme.breakpoints.down('md')]: {
-            width: 0,
-            overflowX: 'hidden',
-            margin: 0,
-        },
-    },
-}));
+import styles from './Aside.module.css';
 
 const Aside = () => {
     return (
-        /*<Box
-              sx={{
-                  width: {
-                      sm: 200,
-                      md: 0,
-                  },
-                  margin: {
-                      sm: '1em',
-                      md: 0,
-                  },
-                  overflowX: {
-                      md: 'hidden',
-                  },
-              }}
-        >*/
-        <Root className={classes.root}>
+        <div className={styles.root}>
             <H4>App Users</H4>
             <Text>
                 Eiusmod adipisicing tempor duis qui. Ullamco aliqua tempor
@@ -49,7 +14,7 @@ const Aside = () => {
                 dolore elit sit occaecat ad amet tempor esse occaecat enim.
                 Laborum aliqua excepteur qui ipsum in dolor et cillum est.
             </Text>
-        </Root>
+        </div>
     );
 };
 
