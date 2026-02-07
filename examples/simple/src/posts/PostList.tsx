@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BookIcon from '@mui/icons-material/Book';
+import { DocumentIcon } from '@salt-ds/icons';
 import { useMediaQuery } from '@mui/material';
 import { Pill } from '@salt-ds/core';
 import { Theme } from '@mui/material/styles';
@@ -34,7 +34,7 @@ import {
 
 import ResetViewsButton from './ResetViewsButton';
 
-export const PostIcon = BookIcon;
+export const PostIcon = DocumentIcon;
 
 const QuickFilter = ({
     label,

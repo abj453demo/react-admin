@@ -1,5 +1,5 @@
 /* eslint react/jsx-key: off */
-import PeopleIcon from '@mui/icons-material/People';
+import { UserGroupIcon } from '@salt-ds/icons';
 import { useMediaQuery, Theme } from '@mui/material';
 import * as React from 'react';
 import {
@@ -15,7 +15,7 @@ import {
 
 import Aside from './Aside';
 import UserEditEmbedded from './UserEditEmbedded';
-export const UserIcon = PeopleIcon;
+export const UsersIcon = UserGroupIcon;
 
 const getUserFilters = (canSeeRole: boolean) => {
     const filters = [

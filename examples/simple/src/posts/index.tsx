@@ -1,4 +1,4 @@
-import BookIcon from '@mui/icons-material/Book';
+import { DocumentIcon } from '@salt-ds/icons';
 import PostCreate from './PostCreate';
 import PostEdit from './PostEdit';
 import PostList from './PostList';
@@ -9,6 +9,6 @@ export default {
     create: PostCreate,
     edit: PostEdit,
     show: PostShow,
-    icon: BookIcon,
+    icon: DocumentIcon,
     recordRepresentation: 'title',
 };

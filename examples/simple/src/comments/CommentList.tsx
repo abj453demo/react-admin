@@ -1,15 +1,14 @@
 import * as React from 'react';
-import PersonIcon from '@mui/icons-material/Person';
+import { UserIcon } from '@salt-ds/icons';
 import {
     Card,
     CardActions,
     CardContent,
     CardHeader,
-    Typography,
     useMediaQuery,
     Theme,
 } from '@mui/material';
-import { Avatar, GridLayout } from '@salt-ds/core';
+import { Avatar, GridLayout, Text } from '@salt-ds/core';
 import jsonExport from 'jsonexport/dist';
 import {
     ListBase,
@@ -93,7 +92,7 @@ const CommentGrid = () => {
                             }
                             avatar={
                                 <Avatar>
-                                    <PersonIcon fontSize="small" />
+                                    <UserIcon />
                                 </Avatar>
                             }
                         />
@@ -111,13 +110,9 @@ const CommentGrid = () => {
                             />
                         </CardContent>
                         <CardContent sx={{ flexGrow: 1 }}>
-                            <Typography
-                                component="span"
-                                variant="body2"
-                                data-testid="postLink"
-                            >
+                            <Text as="span" data-testid="postLink">
                                 {translate('comment.list.about')}&nbsp;
-                            </Typography>
+                            </Text>
                             <ReferenceField
                                 record={record}
                                 source="post_id"
@@ -142,7 +137,7 @@ const CommentMobileList = () => (
         tertiaryText={record =>
             new Date(record.created_at).toLocaleDateString()
         }
-        leftAvatar={() => <PersonIcon />}
+        leftAvatar={() => <UserIcon />}
     />
 );
 
