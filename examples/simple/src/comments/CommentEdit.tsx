@@ -1,10 +1,5 @@
 import * as React from 'react';
-import {
-    Box,
-    Card,
-    Typography,
-    TextField as MuiTextField,
-} from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import {
     Button,
     Card as SaltCard,
@@ -12,12 +7,9 @@ import {
     DialogHeader,
     DialogContent,
     DialogActions,
-    FlowLayout,
     FormField,
     FormFieldLabel,
     Input,
-    StackLayout,
-    Text,
 } from '@salt-ds/core';
 import {
     AutocompleteInput,
@@ -103,12 +95,14 @@ const CreatePost = () => {
             <form onSubmit={handleSubmit}>
                 <DialogHeader header="New Post" />
                 <DialogContent>
-                    <MuiTextField
-                        label="New post title"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New post title</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={event => setValue(event.target.value)}
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
                     <Button type="submit" variant="cta">
@@ -138,7 +132,7 @@ const CommentEdit = props => {
                         <CreateButton resource="posts" label="Create post" />
                     </TopToolbar>
                 </Box>
-                <Card sx={{ marginTop: '1em', maxWidth: '30em' }}>
+                <SaltCard style={{ marginTop: '1em', maxWidth: '30em' }}>
                     {record && (
                         <SimpleForm
                             resource={resource}
@@ -184,7 +178,7 @@ const CommentEdit = props => {
                             />
                         </SimpleForm>
                     )}
-                </Card>
+                </SaltCard>
             </div>
         </EditContextProvider>
     );
