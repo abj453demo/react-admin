@@ -15,7 +15,7 @@
 | 0 | Infrastructure Setup | ⏳ Pending | | |
 | 1 | Dialog Swap | ⏳ Pending | | |
 | 1 | Typography Swap | ⏳ Pending | | |
-| 1 | Button Swap | ✅ Success | Migrated 5 files; variant mapping: contained→cta, text→secondary; sx→style | [after](docs/migration-recordings/swap_button_after.webm) |
+| 1 | Button Swap | ⏳ Pending | | |
 | 1 | Avatar Swap | ⏳ Pending | | |
 | 1 | Chip to Pill Swap | ⏳ Pending | | |
 | 1 | Stack to StackLayout Swap | ⏳ Pending | | |
