@@ -7,14 +7,13 @@ import {
     useCreateSuggestionContext,
     useLocaleState,
 } from 'react-admin';
+import { Box, Button, TextField as MuiTextField } from '@mui/material';
 import {
-    Box,
-    Button,
     Dialog,
+    DialogHeader,
     DialogContent,
     DialogActions,
-    TextField as MuiTextField,
-} from '@mui/material';
+} from '@salt-ds/core';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
@@ -81,8 +80,9 @@ const CreateTag = () => {
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
+                <DialogHeader header="New Tag" />
                 <DialogContent>
                     <MuiTextField
                         label="New tag"

@@ -32,15 +32,14 @@ import {
     EditActionsProps,
     CanAccess,
 } from 'react-admin';
+import { Box, BoxProps, TextField as MuiTextField } from '@mui/material';
 import {
-    Box,
-    BoxProps,
+    Button,
     Dialog,
-    DialogActions,
+    DialogHeader,
     DialogContent,
-    TextField as MuiTextField,
-} from '@mui/material';
-import { Button } from '@salt-ds/core';
+    DialogActions,
+} from '@salt-ds/core';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 
@@ -60,8 +59,9 @@ const CreateCategory = ({
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
+                <DialogHeader header="New Category" />
                 <DialogContent>
                     <MuiTextField
                         label="New Category"
