@@ -13,7 +13,7 @@
 | Phase | Task | Status | Notes | Recording |
 |-------|------|--------|-------|----------|
 | 0 | Infrastructure Setup | ⏳ Pending | | |
-| 1 | Dialog Swap | ⏳ Pending | | |
+| 1 | Dialog Swap | ✅ Success | Migrated 6 files: DialogTitle→DialogHeader, onClose→onOpenChange | [after](docs/migration-recordings/swap_dialog_after.webm) |
 | 1 | Typography Swap | ⏳ Pending | | |
 | 1 | Button Swap | ⏳ Pending | | |
 | 1 | Avatar Swap | ⏳ Pending | | |
