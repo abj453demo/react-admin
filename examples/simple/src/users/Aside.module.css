@@ -8,5 +8,7 @@
     .root {
         width: 200px;
         margin: var(--salt-spacing-100, 1em);
+        overflow-x: visible;
     }
 }
+
