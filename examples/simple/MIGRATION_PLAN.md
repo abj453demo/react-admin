@@ -20,14 +20,14 @@
 | 1 | Chip to Pill Swap | ✅ Success | MUI Chip → Salt Pill in QuickFilter component. ChipField (react-admin) unchanged. | [after](docs/migration-recordings/swap_chip_to_pill_after.webm) |
 | 1 | Stack to StackLayout Swap | ✅ Success | Migrated CommentShow.tsx - replaced Stack with StackLayout, converted sx padding to inline style | [after](docs/migration-recordings/swap_stack_to_stacklayout_after.webm) |
 | 1 | useMediaQuery Swap | ✅ Success | Replaced useMediaQuery + Theme with useIsSmall in PostList, UserList, CommentList | [after](docs/migration-recordings/swap_use_media_query_after.webm) |
-| 2 | Grid to FlowLayout (CommentList) | ⏳ Pending | | |
-| 2 | Card Composition (CommentList) | ⏳ Pending | | |
-| 2 | Card Composition (CommentEdit) | ⏳ Pending | | |
-| 2 | Card Composition (TagList) | ⏳ Pending | | |
-| 2 | List to Tree (TagList) | ⏳ Pending | | |
-| 2 | TextField to Input (PostEdit) | ⏳ Pending | | |
-| 2 | TextField to Input (CommentEdit) | ⏳ Pending | | |
-| 2 | Styled to CSS Module (Aside) | ⏳ Pending | | |
+| 2 | Grid to FlowLayout (CommentList) | ✅ Success | Replaced MUI Grid with Salt FlowLayout + CSS module for responsive behavior (900px/1200px breakpoints) | [after](docs/migration-recordings/refactor_grid_to_flowlayout_CommentList_after.webm) |
+| 2 | Card Composition (CommentList) | ✅ Success | Replaced MUI Card/CardHeader/CardContent/CardActions with Salt Card + StackLayout + FlowLayout composition | [after](docs/migration-recordings/refactor_card_composition_CommentList_after.webm) |
+| 2 | Card Composition (CommentEdit) | ✅ Success | MUI Card → Salt Card with style prop | [after](docs/migration-recordings/refactor_card_composition_CommentEdit_after.mp4) |
+| 2 | Card Composition (TagList) | ✅ Success | Replaced MUI Card with Salt Card container with proper padding | [after](docs/migration-recordings/refactor_card_composition_TagList_after.webm) |
+| 2 | List to Tree (TagList) | ✅ Success | Replaced MUI List + Collapse with custom accessible tree using Salt FlowLayout, StackLayout, Text, Button, and ChevronDown/ChevronRight icons | [after](docs/migration-recordings/refactor_list_to_tree_TagList_after.webm) |
+| 2 | TextField to Input (PostEdit) | ✅ Success | MUI TextField → Salt FormField + FormFieldLabel + Input in CreateCategory dialog | [after](docs/migration-recordings/refactor_textfield_to_input_PostEdit_after.webm) |
+| 2 | TextField to Input (CommentEdit) | ✅ Success | MUI TextField → Salt FormField + FormFieldLabel + Input | [after](docs/migration-recordings/refactor_card_composition_CommentEdit_after.mp4) |
+| 2 | Styled to CSS Module (Aside) | ✅ Success | MUI styled() → CSS module with Salt spacing token var(--salt-spacing-100) | |
 | 3 | Icons Cleanup | ⏳ Pending | | |
 | 3 | sx Props Cleanup | ⏳ Pending | | |
 | 3 | Imports Cleanup | ⏳ Pending | | |
