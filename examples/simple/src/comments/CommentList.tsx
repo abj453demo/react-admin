@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PersonIcon from '@mui/icons-material/Person';
-import { Avatar, Grid, Typography, useMediaQuery, Theme } from '@mui/material';
-import { Card } from '@salt-ds/core';
+import { Grid, Typography, useMediaQuery, Theme } from '@mui/material';
+import { Avatar, Card } from '@salt-ds/core';
 import jsonExport from 'jsonexport/dist';
 import {
     ListBase,
@@ -80,7 +80,7 @@ const CommentGrid = () => {
                             }}
                         >
                             <Avatar>
-                                <PersonIcon />
+                                <PersonIcon fontSize="small" />
                             </Avatar>
                             <div>
                                 <div style={{ fontWeight: 500 }}>

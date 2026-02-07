@@ -33,14 +33,13 @@ import {
     CanAccess,
 } from 'react-admin';
 import {
-    Box,
-    BoxProps,
     Button,
     Dialog,
     DialogActions,
     DialogContent,
     TextField as MuiTextField,
 } from '@mui/material';
+import { FlexLayout } from '@salt-ds/core';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 
@@ -88,10 +87,12 @@ const EditActions = ({ hasShow }: EditActionsProps) => (
     </TopToolbar>
 );
 
-const SanitizedBox = ({
+const SanitizedFlexLayout = ({
     fullWidth,
     ...props
-}: BoxProps & { fullWidth?: boolean }) => <Box {...props} />;
+}: React.ComponentProps<typeof FlexLayout> & { fullWidth?: boolean }) => (
+    <FlexLayout {...props} />
+);
 
 const categories = [
     { name: 'Tech', id: 'tech' },
@@ -102,11 +103,10 @@ const PostEdit = () => (
     <Edit title={<PostTitle />} actions={<EditActions />}>
         <TabbedForm defaultValues={{ average_note: 0 }} warnWhenUnsavedChanges>
             <TabbedForm.Tab label="post.form.summary">
-                <SanitizedBox
-                    display="flex"
-                    flexDirection="column"
-                    width="100%"
-                    justifyContent="space-between"
+                <SanitizedFlexLayout
+                    direction="column"
+                    justify="space-between"
+                    style={{ width: '100%' }}
                     fullWidth
                 >
                     <TextInput InputProps={{ disabled: true }} source="id" />
@@ -115,7 +115,7 @@ const PostEdit = () => (
                         validate={required()}
                         resettable
                     />
-                </SanitizedBox>
+                </SanitizedFlexLayout>
                 <TextInput
                     multiline
                     source="teaser"
