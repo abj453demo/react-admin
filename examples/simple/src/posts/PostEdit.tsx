@@ -32,13 +32,9 @@ import {
     EditActionsProps,
     CanAccess,
 } from 'react-admin';
+import { Box, BoxProps, TextField as MuiTextField } from '@mui/material';
 import {
-    Box,
-    BoxProps,
     Button,
-    TextField as MuiTextField,
-} from '@mui/material';
-import {
     Dialog,
     DialogHeader,
     DialogContent,
@@ -75,8 +71,12 @@ const CreateCategory = ({
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button type="submit" variant="cta">
+                        Save
+                    </Button>
+                    <Button onClick={onCancel} variant="secondary">
+                        Cancel
+                    </Button>
                 </DialogActions>
             </form>
         </Dialog>

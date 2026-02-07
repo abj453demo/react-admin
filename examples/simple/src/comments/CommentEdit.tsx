@@ -4,9 +4,9 @@ import {
     Card,
     Typography,
     TextField as MuiTextField,
-    Button,
 } from '@mui/material';
 import {
+    Button,
     Dialog,
     DialogHeader,
     DialogContent,
@@ -104,8 +104,12 @@ const CreatePost = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button type="submit" variant="cta">
+                        Save
+                    </Button>
+                    <Button onClick={onCancel} variant="secondary">
+                        Cancel
+                    </Button>
                 </DialogActions>
             </form>
         </Dialog>

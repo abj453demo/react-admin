@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Fragment, useState, useCallback } from 'react';
 import { useWatch } from 'react-hook-form';
-import { Button } from '@mui/material';
 import {
+    Button,
     Dialog,
     DialogHeader,
     DialogContent,
@@ -54,8 +54,9 @@ const PostReferenceInput = () => {
                 <Fragment>
                     <Button
                         data-testid="button-show-post"
-                        sx={{ margin: '10px 24px', position: 'relative' }}
+                        style={{ margin: '10px 24px', position: 'relative' }}
                         onClick={handleShowClick}
+                        variant="secondary"
                     >
                         {translate('ra.action.show')}
                     </Button>
@@ -75,6 +76,7 @@ const PostReferenceInput = () => {
                             <Button
                                 data-testid="button-close-modal"
                                 onClick={handleCloseShow}
+                                variant="secondary"
                             >
                                 {translate('simple.action.close')}
                             </Button>

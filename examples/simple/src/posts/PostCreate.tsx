@@ -28,8 +28,8 @@ import {
     CanAccess,
 } from 'react-admin';
 import { useFormContext, useWatch } from 'react-hook-form';
-import { Button } from '@mui/material';
 import {
+    Button,
     Dialog,
     DialogHeader,
     DialogContent,
@@ -260,8 +260,12 @@ const CreateUser = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button type="submit" variant="cta">
+                        Save
+                    </Button>
+                    <Button onClick={onCancel} variant="secondary">
+                        Cancel
+                    </Button>
                 </DialogActions>
             </form>
         </Dialog>
