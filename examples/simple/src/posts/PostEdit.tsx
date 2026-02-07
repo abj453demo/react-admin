@@ -35,12 +35,12 @@ import {
 import {
     Box,
     BoxProps,
-    Button,
     Dialog,
     DialogActions,
     DialogContent,
     TextField as MuiTextField,
 } from '@mui/material';
+import { Button } from '@salt-ds/core';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 
@@ -71,8 +71,12 @@ const CreateCategory = ({
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button type="submit" variant="cta">
+                        Save
+                    </Button>
+                    <Button onClick={onCancel} variant="secondary">
+                        Cancel
+                    </Button>
                 </DialogActions>
             </form>
         </Dialog>

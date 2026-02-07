@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Typography } from '@mui/material';
+import { H4, Text } from '@salt-ds/core';
 
 const PREFIX = 'Aside';
 
@@ -40,15 +40,15 @@ const Aside = () => {
               }}
         >*/
         <Root className={classes.root}>
-            <Typography variant="h6">App Users</Typography>
-            <Typography variant="body2">
+            <H4>App Users</H4>
+            <Text>
                 Eiusmod adipisicing tempor duis qui. Ullamco aliqua tempor
                 incididunt aliquip aliquip qui ad minim aliqua. Aute et magna
                 quis pariatur irure sunt. Aliquip velit consequat dolore ullamco
                 laborum voluptate cupidatat. Proident minim reprehenderit id
                 dolore elit sit occaecat ad amet tempor esse occaecat enim.
                 Laborum aliqua excepteur qui ipsum in dolor et cillum est.
-            </Typography>
+            </Text>
         </Root>
     );
 };

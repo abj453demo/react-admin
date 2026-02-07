@@ -28,7 +28,8 @@ import {
     CanAccess,
 } from 'react-admin';
 import { useFormContext, useWatch } from 'react-hook-form';
-import { Button, Dialog, DialogActions, DialogContent } from '@mui/material';
+import { Dialog, DialogActions, DialogContent } from '@mui/material';
+import { Button } from '@salt-ds/core';
 
 const PostCreateToolbar = () => {
     const notify = useNotify();
@@ -253,8 +254,12 @@ const CreateUser = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button type="submit" variant="cta">
+                        Save
+                    </Button>
+                    <Button onClick={onCancel} variant="secondary">
+                        Cancel
+                    </Button>
                 </DialogActions>
             </form>
         </Dialog>
