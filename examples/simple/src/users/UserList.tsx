@@ -1,6 +1,6 @@
 /* eslint react/jsx-key: off */
 import PeopleIcon from '@mui/icons-material/People';
-import { useMediaQuery, Theme } from '@mui/material';
+import { useIsSmall } from '../utils/useResponsive';
 import * as React from 'react';
 import {
     BulkDeleteWithConfirmButton,
@@ -33,9 +33,7 @@ const UserBulkActionButtons = props => (
 );
 
 const UserList = () => {
-    const isSmall = useMediaQuery((theme: Theme) =>
-        theme.breakpoints.down('md')
-    );
+    const isSmall = useIsSmall();
     const { isPending, canAccess: canSeeRole } = useCanAccess({
         action: 'show',
         resource: 'users.role',

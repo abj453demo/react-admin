@@ -1,8 +1,7 @@
 import * as React from 'react';
 import BookIcon from '@mui/icons-material/Book';
-import { useMediaQuery } from '@mui/material';
 import { Pill } from '@salt-ds/core';
-import { Theme } from '@mui/material/styles';
+import { useIsSmall } from '../utils/useResponsive';
 import lodashGet from 'lodash/get.js';
 import jsonExport from 'jsonexport/dist';
 import {
@@ -209,10 +208,7 @@ const PostListDesktop = () => (
 );
 
 const PostList = () => {
-    const isSmall = useMediaQuery<Theme>(
-        theme => theme.breakpoints.down('md'),
-        { noSsr: true }
-    );
+    const isSmall = useIsSmall();
     return isSmall ? <PostListMobile /> : <PostListDesktop />;
 };
 
