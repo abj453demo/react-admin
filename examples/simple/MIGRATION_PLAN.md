@@ -14,11 +14,11 @@
 |-------|------|--------|-------|----------|
 | 0 | Infrastructure Setup | ⏳ Pending | | |
 | 1 | Dialog Swap | ⏳ Pending | | |
-| 1 | Typography Swap | ⏳ Pending | | |
+| 1 | Typography Swap | ✅ Success | Migrated Typography to H4/Text in Aside.tsx and CommentList.tsx. Also migrated useMediaQuery to useIsSmall in CommentList.tsx | [after](docs/migration-recordings/swap_typography_after.webm) |
 | 1 | Button Swap | ⏳ Pending | | |
 | 1 | Avatar Swap | ✅ Success | MUI Avatar → Salt Avatar with fallbackIcon prop. Blue accent color is expected Salt styling. | [after](docs/migration-recordings/swap_avatar_after.webm) |
 | 1 | Chip to Pill Swap | ⏳ Pending | | |
-| 1 | Stack to StackLayout Swap | ⏳ Pending | | |
+| 1 | Stack to StackLayout Swap | ✅ Success | Migrated CommentShow.tsx - replaced Stack with StackLayout, converted sx padding to inline style | [after](docs/migration-recordings/swap_stack_to_stacklayout_after.webm) |
 | 1 | useMediaQuery Swap | ⏳ Pending | | |
 | 2 | Grid to FlowLayout (CommentList) | ⏳ Pending | | |
 | 2 | Card Composition (CommentList) | ⏳ Pending | | |

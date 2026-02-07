@@ -6,11 +6,9 @@ import {
     CardContent,
     CardHeader,
     Grid,
-    Typography,
-    useMediaQuery,
-    Theme,
 } from '@mui/material';
-import { Avatar } from '@salt-ds/core';
+import { Avatar, Text } from '@salt-ds/core';
+import { useIsSmall } from '../utils/useResponsive';
 import jsonExport from 'jsonexport/dist';
 import {
     ListBase,
@@ -108,13 +106,9 @@ const CommentGrid = () => {
                             />
                         </CardContent>
                         <CardContent sx={{ flexGrow: 1 }}>
-                            <Typography
-                                component="span"
-                                variant="body2"
-                                data-testid="postLink"
-                            >
+                            <Text as="span" data-testid="postLink">
                                 {translate('comment.list.about')}&nbsp;
-                            </Typography>
+                            </Text>
                             <ReferenceField
                                 record={record}
                                 source="post_id"
@@ -154,7 +148,7 @@ const CommentList = () => (
 );
 
 const ListView = () => {
-    const isSmall = useMediaQuery<Theme>(theme => theme.breakpoints.down('md'));
+    const isSmall = useIsSmall();
     const { defaultTitle } = useListContext();
     return (
         <>
