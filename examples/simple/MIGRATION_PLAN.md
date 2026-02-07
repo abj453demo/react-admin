@@ -14,7 +14,7 @@
 |-------|------|--------|-------|----------|
 | 0 | Infrastructure Setup | ⏳ Pending | | |
 | 1 | Dialog Swap | ⏳ Pending | | |
-| 1 | Typography Swap | ⏳ Pending | | |
+| 1 | Typography Swap | ✅ Success | Migrated Typography to H4/Text in Aside.tsx and CommentList.tsx. Also migrated useMediaQuery to useIsSmall in CommentList.tsx | [after](docs/migration-recordings/swap_typography_after.webm) |
 | 1 | Button Swap | ⏳ Pending | | |
 | 1 | Avatar Swap | ⏳ Pending | | |
 | 1 | Chip to Pill Swap | ⏳ Pending | | |
