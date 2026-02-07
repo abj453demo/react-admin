@@ -8,13 +8,13 @@ import {
     useLocaleState,
 } from 'react-admin';
 import {
-    Box,
     Button,
     Dialog,
     DialogContent,
     DialogActions,
     TextField as MuiTextField,
 } from '@mui/material';
+import { FlexLayout } from '@salt-ds/core';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
@@ -34,13 +34,11 @@ const TagReferenceInput = ({
     };
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                width: '50%',
-            }}
+        <FlexLayout
+            direction="row"
+            justify="start"
+            gap={0}
+            style={{ width: '50%' }}
         >
             <ReferenceArrayInput {...props} perPage={5} filter={{ published }}>
                 <AutocompleteArrayInput
@@ -56,7 +54,7 @@ const TagReferenceInput = ({
             >
                 Filter {published ? 'Unpublished' : 'Published'} Tags
             </Button>
-        </Box>
+        </FlexLayout>
     );
 };
 
