@@ -1,7 +1,6 @@
 import * as React from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import {
-    Avatar,
     Card,
     CardActions,
     CardContent,
@@ -10,7 +9,7 @@ import {
     useMediaQuery,
     Theme,
 } from '@mui/material';
-import { Text } from '@salt-ds/core';
+import { Avatar, Text } from '@salt-ds/core';
 import jsonExport from 'jsonexport/dist';
 import {
     ListBase,
@@ -94,7 +93,7 @@ const CommentGrid = () => {
                             }
                             avatar={
                                 <Avatar>
-                                    <PersonIcon />
+                                    <PersonIcon fontSize="small" />
                                 </Avatar>
                             }
                         />
