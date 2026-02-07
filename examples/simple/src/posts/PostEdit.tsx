@@ -32,7 +32,7 @@ import {
     EditActionsProps,
     CanAccess,
 } from 'react-admin';
-import { Box, BoxProps, TextField as MuiTextField } from '@mui/material';
+import { Box, BoxProps } from '@mui/material';
 import {
     Button,
     Dialog,
@@ -66,12 +66,18 @@ const CreateCategory = ({
             <form onSubmit={handleSubmit}>
                 <DialogHeader header="New Category" />
                 <DialogContent>
-                    <MuiTextField
-                        label="New Category"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New Category</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={event =>
+                                setValue(
+                                    (event.target as HTMLInputElement).value
+                                )
+                            }
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
                     <Button type="submit" variant="cta">
