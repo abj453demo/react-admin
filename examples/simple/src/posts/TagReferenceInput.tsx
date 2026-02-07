@@ -7,14 +7,17 @@ import {
     useCreateSuggestionContext,
     useLocaleState,
 } from 'react-admin';
-import { Box, Button, TextField as MuiTextField } from '@mui/material';
+import { useFormContext } from 'react-hook-form';
 import {
     Dialog,
     DialogHeader,
     DialogContent,
     DialogActions,
+    Button,
+    FormField,
+    FormFieldLabel,
+    Input,
 } from '@salt-ds/core';
-import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
     ...props
@@ -33,8 +36,8 @@ const TagReferenceInput = ({
     };
 
     return (
-        <Box
-            sx={{
+        <div
+            style={{
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'flex-start',
@@ -51,11 +54,14 @@ const TagReferenceInput = ({
             <Button
                 name="change-filter"
                 onClick={handleChangePublishedFilter}
-                sx={{ margin: '0 24px', position: 'relative' }}
+                style={{
+                    margin: '0 var(--salt-spacing-300)',
+                    position: 'relative',
+                }}
             >
                 Filter {published ? 'Unpublished' : 'Published'} Tags
             </Button>
-        </Box>
+        </div>
     );
 };
 
@@ -84,12 +90,18 @@ const CreateTag = () => {
             <form onSubmit={handleSubmit}>
                 <DialogHeader header="New Tag" />
                 <DialogContent>
-                    <MuiTextField
-                        label="New tag"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New tag</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={event =>
+                                setValue(
+                                    (event.target as HTMLInputElement).value
+                                )
+                            }
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
                     <Button type="submit">Save</Button>

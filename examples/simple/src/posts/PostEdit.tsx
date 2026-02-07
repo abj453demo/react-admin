@@ -32,7 +32,6 @@ import {
     EditActionsProps,
     CanAccess,
 } from 'react-admin';
-import { Box, BoxProps } from '@mui/material';
 import {
     Button,
     Dialog,
@@ -101,11 +100,6 @@ const EditActions = ({ hasShow }: EditActionsProps) => (
     </TopToolbar>
 );
 
-const SanitizedBox = ({
-    fullWidth,
-    ...props
-}: BoxProps & { fullWidth?: boolean }) => <Box {...props} />;
-
 const categories = [
     { name: 'Tech', id: 'tech' },
     { name: 'Lifestyle', id: 'lifestyle' },
@@ -115,12 +109,13 @@ const PostEdit = () => (
     <Edit title={<PostTitle />} actions={<EditActions />}>
         <TabbedForm defaultValues={{ average_note: 0 }} warnWhenUnsavedChanges>
             <TabbedForm.Tab label="post.form.summary">
-                <SanitizedBox
-                    display="flex"
-                    flexDirection="column"
-                    width="100%"
-                    justifyContent="space-between"
-                    fullWidth
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        width: '100%',
+                        justifyContent: 'space-between',
+                    }}
                 >
                     <TextInput InputProps={{ disabled: true }} source="id" />
                     <TextInput
@@ -128,7 +123,7 @@ const PostEdit = () => (
                         validate={required()}
                         resettable
                     />
-                </SanitizedBox>
+                </div>
                 <TextInput
                     multiline
                     source="teaser"
@@ -241,7 +236,7 @@ const PostEdit = () => (
                     <ReferenceManyCount
                         reference="comments"
                         target="post_id"
-                        sx={{ lineHeight: 'inherit' }}
+                        style={{ lineHeight: 'inherit' }}
                     />
                 }
             >
