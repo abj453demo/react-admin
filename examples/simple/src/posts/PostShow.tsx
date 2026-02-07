@@ -95,10 +95,9 @@ const PostShow = () => {
                         />
                         <NumberField source="average_note" />
                         <BooleanField source="commentable" />
-                        <InPlaceEditor
-                            source="views"
-                            className={styles.inPlaceEditorViews}
-                        />
+                        <div className={styles.inPlaceEditorViews}>
+                            <InPlaceEditor source="views" />
+                        </div>
                         <CloneButton />
                     </TabbedShowLayout.Tab>
                     <TabbedShowLayout.Tab

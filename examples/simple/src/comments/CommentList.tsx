@@ -60,7 +60,7 @@ const CommentGrid = () => {
 
     if (!data) return null;
     return (
-        <FlowLayout gap={2} wrap className={styles.commentGrid}>
+        <FlowLayout gap={2} className={styles.commentGrid}>
             {data.map(record => (
                 <div key={record.id} className={styles.commentCardWrapper}>
                     <Card className={styles.commentCard}>
