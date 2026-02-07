@@ -12,14 +12,14 @@
 
 | Phase | Task | Status | Notes | Recording |
 |-------|------|--------|-------|----------|
-| 0 | Infrastructure Setup | ⏳ Pending | | |
-| 1 | Dialog Swap | ⏳ Pending | | |
+| 0 | Infrastructure Setup | ✅ Success | Salt DS packages installed, SaltProvider wrapper added, useIsSmall hook created | |
+| 1 | Dialog Swap | ✅ Success | DialogTitle → DialogHeader with header prop, onClose → onOpenChange, removed fullWidth prop | [after](docs/migration-recordings/swap_dialog_after.webm) |
 | 1 | Typography Swap | ✅ Success | Migrated Typography to H4/Text in Aside.tsx and CommentList.tsx. Also migrated useMediaQuery to useIsSmall in CommentList.tsx | [after](docs/migration-recordings/swap_typography_after.webm) |
-| 1 | Button Swap | ⏳ Pending | | |
-| 1 | Avatar Swap | ⏳ Pending | | |
+| 1 | Button Swap | ✅ Success | Migrated 5 files: variant contained → cta, text → secondary, converted sx to style props | [after](docs/migration-recordings/swap_button_after.webm) |
+| 1 | Avatar Swap | ✅ Success | Used fallbackIcon prop for Salt API in CommentList.tsx | [after](docs/migration-recordings/swap_avatar_after.webm) |
 | 1 | Chip to Pill Swap | ✅ Success | MUI Chip → Salt Pill in QuickFilter component. ChipField (react-admin) unchanged. | [after](docs/migration-recordings/swap_chip_to_pill_after.webm) |
 | 1 | Stack to StackLayout Swap | ✅ Success | Migrated CommentShow.tsx - replaced Stack with StackLayout, converted sx padding to inline style | [after](docs/migration-recordings/swap_stack_to_stacklayout_after.webm) |
-| 1 | useMediaQuery Swap | ⏳ Pending | | |
+| 1 | useMediaQuery Swap | ✅ Success | Replaced useMediaQuery + Theme with useIsSmall in PostList, UserList, CommentList | [after](docs/migration-recordings/swap_use_media_query_after.webm) |
 | 2 | Grid to FlowLayout (CommentList) | ⏳ Pending | | |
 | 2 | Card Composition (CommentList) | ⏳ Pending | | |
 | 2 | Card Composition (CommentEdit) | ⏳ Pending | | |
