@@ -91,7 +91,7 @@ const CommentGrid = () => {
                                 </div>
                                 <div
                                     style={{
-                                        color: 'rgba(0, 0, 0, 0.6)',
+                                        color: 'var(--salt-content-secondary-foreground)',
                                         fontSize: '0.875rem',
                                     }}
                                 >
