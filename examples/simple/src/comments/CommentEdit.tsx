@@ -1,13 +1,12 @@
 import * as React from 'react';
 import {
-    Typography,
     Dialog,
     DialogContent,
     TextField as MuiTextField,
     DialogActions,
     Button,
 } from '@mui/material';
-import { Card } from '@salt-ds/core';
+import { Card, Text } from '@salt-ds/core';
 import {
     AutocompleteInput,
     CreateButton,
@@ -39,9 +38,13 @@ const LinkToRelatedPost = () => {
                 id: record?.post_id,
             })}
         >
-            <Typography variant="caption" color="inherit" align="right">
+            <Text
+                styleAs="notation"
+                color="inherit"
+                style={{ textAlign: 'right' }}
+            >
                 See related post
-            </Typography>
+            </Text>
         </RaLink>
     );
 };
