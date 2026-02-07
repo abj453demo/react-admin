@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {
-    Box,
     Card,
     Typography,
     Dialog,
@@ -116,13 +115,13 @@ const CommentEdit = props => {
         <EditContextProvider value={controllerProps}>
             <div className="edit-page">
                 <Title defaultTitle={controllerProps.defaultTitle} />
-                <Box sx={{ float: 'right' }}>
+                <div style={{ float: 'right' }}>
                     <TopToolbar>
                         <ShowButton record={record} />
                         {/* FIXME: added because react-router HashHistory cannot block navigation induced by address bar changes */}
                         <CreateButton resource="posts" label="Create post" />
                     </TopToolbar>
-                </Box>
+                </div>
                 <Card sx={{ marginTop: '1em', maxWidth: '30em' }}>
                     {record && (
                         <SimpleForm

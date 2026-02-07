@@ -8,7 +8,6 @@ import {
     Title,
 } from 'react-admin';
 import {
-    Box,
     List,
     ListItem,
     ListItemText,
@@ -24,11 +23,11 @@ const TagList = () => (
     <ListBase perPage={1000}>
         <StackLayout gap={0}>
             <ListActions />
-            <Box maxWidth="20em" marginTop="1em">
+            <div style={{ maxWidth: '20em', marginTop: '1em' }}>
                 <Card>
                     <Tree />
                 </Card>
-            </Box>
+            </div>
         </StackLayout>
     </ListBase>
 );
