@@ -19,7 +19,7 @@
 | 1 | Avatar Swap | ⏳ Pending | | |
 | 1 | Chip to Pill Swap | ⏳ Pending | | |
 | 1 | Stack to StackLayout Swap | ⏳ Pending | | |
-| 1 | useMediaQuery Swap | ⏳ Pending | | |
+| 1 | useMediaQuery Swap | ✅ Success | Replaced useMediaQuery with useIsSmall from Salt's useBreakpoint. Removed Theme imports. | [after](docs/migration-recordings/swap_use_media_query_after.webm) |
 | 2 | Grid to FlowLayout (CommentList) | ⏳ Pending | | |
 | 2 | Card Composition (CommentList) | ⏳ Pending | | |
 | 2 | Card Composition (CommentEdit) | ⏳ Pending | | |
