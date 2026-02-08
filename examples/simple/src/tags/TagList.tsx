@@ -7,9 +7,7 @@ import {
     EditButton,
     Title,
 } from 'react-admin';
-import { Card as SaltCard, StackLayout, Collapsible } from '@salt-ds/core';
-import { Tree as SaltTree } from '@salt-ds/lab';
-import { ChevronUpIcon, ChevronDownIcon } from '@salt-ds/icons';
+import { Card as SaltCard, StackLayout } from '@salt-ds/core';
 import {
     Box,
     List,
