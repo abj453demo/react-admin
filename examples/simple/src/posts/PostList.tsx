@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Pill } from '@salt-ds/core';
 import { BookmarkIcon } from '@salt-ds/icons';
 import BookIcon from '@mui/icons-material/Book';
-import { Chip } from '@mui/material';
 import { useIsMediumDown } from '../utils/useResponsive';
 import lodashGet from 'lodash/get.js';
 import jsonExport from 'jsonexport/dist';
@@ -45,7 +44,7 @@ const QuickFilter = ({
     defaultValue?: any;
 }) => {
     const translate = useTranslate();
-    return <Chip sx={{ marginBottom: 1 }} label={translate(label)} />;
+    return <Pill style={{ marginBottom: '8px' }}>{translate(label)}</Pill>;
 };
 
 const postFilter = [
