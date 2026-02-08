@@ -6,9 +6,7 @@ import {
     Text,
 } from '@salt-ds/core';
 import { UserIcon } from '@salt-ds/icons';
-import PersonIcon from '@mui/icons-material/Person';
 import {
-    Avatar,
     Card,
     CardActions,
     CardContent,
@@ -99,11 +97,7 @@ const CommentGrid = () => {
                                     source="created_at"
                                 />
                             }
-                            avatar={
-                                <Avatar>
-                                    <PersonIcon />
-                                </Avatar>
-                            }
+                            avatar={<SaltAvatar fallbackIcon={<UserIcon />} />}
                         />
                         <CardContent>
                             <TextField
@@ -150,7 +144,7 @@ const CommentMobileList = () => (
         tertiaryText={record =>
             new Date(record.created_at).toLocaleDateString()
         }
-        leftAvatar={() => <PersonIcon />}
+        leftAvatar={() => <SaltAvatar fallbackIcon={<UserIcon />} />}
     />
 );
 
