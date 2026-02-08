@@ -8,7 +8,7 @@ import {
     Title,
 } from 'react-admin';
 import { Card as SaltCard, StackLayout, Collapsible } from '@salt-ds/core';
-import { Tree } from '@salt-ds/lab';
+import { Tree as SaltTree } from '@salt-ds/lab';
 import { ChevronUpIcon, ChevronDownIcon } from '@salt-ds/icons';
 import {
     Box,
@@ -17,7 +17,6 @@ import {
     ListItemText,
     Collapse,
     Card,
-    Stack,
     ListItemButton,
 } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -25,18 +24,18 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const TagList = () => (
     <ListBase perPage={1000}>
-        <Stack>
+        <StackLayout>
             <ListActions />
             <Box maxWidth="20em" marginTop="1em">
                 <Card>
-                    <Tree />
+                    <TagTree />
                 </Card>
             </Box>
-        </Stack>
+        </StackLayout>
     </ListBase>
 );
 
-const Tree = () => {
+const TagTree = () => {
     const { data, defaultTitle } = useListContext();
     const [openChildren, setOpenChildren] = useState<string[]>([]);
     const toggleNode = node =>
