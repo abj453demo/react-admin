@@ -1,14 +1,16 @@
 import * as React from 'react';
 import {
-    Box,
-    Card,
-    Typography,
-    Dialog,
-    DialogContent,
-    TextField as MuiTextField,
-    DialogActions,
     Button,
-} from '@mui/material';
+    Card as SaltCard,
+    Dialog,
+    DialogHeader,
+    DialogContent,
+    DialogActions,
+    FormField,
+    FormFieldLabel,
+    Input,
+    Text,
+} from '@salt-ds/core';
 import {
     AutocompleteInput,
     CreateButton,
@@ -40,9 +42,7 @@ const LinkToRelatedPost = () => {
                 id: record?.post_id,
             })}
         >
-            <Typography variant="caption" color="inherit" align="right">
-                See related post
-            </Typography>
+            <Text styleAs="label">See related post</Text>
         </RaLink>
     );
 };
@@ -89,19 +89,30 @@ const CreatePost = () => {
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
+                <DialogHeader header="New Post" />
                 <DialogContent>
-                    <MuiTextField
-                        label="New post title"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New post title</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={event =>
+                                setValue(
+                                    (event.target as HTMLInputElement).value
+                                )
+                            }
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button type="submit" variant="cta">
+                        Save
+                    </Button>
+                    <Button onClick={onCancel} variant="secondary">
+                        Cancel
+                    </Button>
                 </DialogActions>
             </form>
         </Dialog>
@@ -116,14 +127,14 @@ const CommentEdit = props => {
         <EditContextProvider value={controllerProps}>
             <div className="edit-page">
                 <Title defaultTitle={controllerProps.defaultTitle} />
-                <Box sx={{ float: 'right' }}>
+                <div style={{ float: 'right' }}>
                     <TopToolbar>
                         <ShowButton record={record} />
                         {/* FIXME: added because react-router HashHistory cannot block navigation induced by address bar changes */}
                         <CreateButton resource="posts" label="Create post" />
                     </TopToolbar>
-                </Box>
-                <Card sx={{ marginTop: '1em', maxWidth: '30em' }}>
+                </div>
+                <SaltCard style={{ marginTop: '1em', maxWidth: '30em' }}>
                     {record && (
                         <SimpleForm
                             resource={resource}
@@ -169,7 +180,7 @@ const CommentEdit = props => {
                             />
                         </SimpleForm>
                     )}
-                </Card>
+                </SaltCard>
             </div>
         </EditContextProvider>
     );

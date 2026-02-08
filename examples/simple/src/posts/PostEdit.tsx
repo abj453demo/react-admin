@@ -33,14 +33,15 @@ import {
     CanAccess,
 } from 'react-admin';
 import {
-    Box,
-    BoxProps,
     Button,
     Dialog,
-    DialogActions,
+    DialogHeader,
     DialogContent,
-    TextField as MuiTextField,
-} from '@mui/material';
+    DialogActions,
+    FormField,
+    FormFieldLabel,
+    Input,
+} from '@salt-ds/core';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 
@@ -60,19 +61,30 @@ const CreateCategory = ({
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
+                <DialogHeader header="New Category" />
                 <DialogContent>
-                    <MuiTextField
-                        label="New Category"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New Category</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={event =>
+                                setValue(
+                                    (event.target as HTMLInputElement).value
+                                )
+                            }
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button type="submit" variant="cta">
+                        Save
+                    </Button>
+                    <Button onClick={onCancel} variant="secondary">
+                        Cancel
+                    </Button>
                 </DialogActions>
             </form>
         </Dialog>
@@ -88,11 +100,6 @@ const EditActions = ({ hasShow }: EditActionsProps) => (
     </TopToolbar>
 );
 
-const SanitizedBox = ({
-    fullWidth,
-    ...props
-}: BoxProps & { fullWidth?: boolean }) => <Box {...props} />;
-
 const categories = [
     { name: 'Tech', id: 'tech' },
     { name: 'Lifestyle', id: 'lifestyle' },
@@ -102,12 +109,13 @@ const PostEdit = () => (
     <Edit title={<PostTitle />} actions={<EditActions />}>
         <TabbedForm defaultValues={{ average_note: 0 }} warnWhenUnsavedChanges>
             <TabbedForm.Tab label="post.form.summary">
-                <SanitizedBox
-                    display="flex"
-                    flexDirection="column"
-                    width="100%"
-                    justifyContent="space-between"
-                    fullWidth
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        width: '100%',
+                        justifyContent: 'space-between',
+                    }}
                 >
                     <TextInput InputProps={{ disabled: true }} source="id" />
                     <TextInput
@@ -115,7 +123,7 @@ const PostEdit = () => (
                         validate={required()}
                         resettable
                     />
-                </SanitizedBox>
+                </div>
                 <TextInput
                     multiline
                     source="teaser"
@@ -228,7 +236,7 @@ const PostEdit = () => (
                     <ReferenceManyCount
                         reference="comments"
                         target="post_id"
-                        sx={{ lineHeight: 'inherit' }}
+                        style={{ lineHeight: 'inherit' }}
                     />
                 }
             >

@@ -28,7 +28,14 @@ import {
     CanAccess,
 } from 'react-admin';
 import { useFormContext, useWatch } from 'react-hook-form';
-import { Button, Dialog, DialogActions, DialogContent } from '@mui/material';
+import {
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogContent,
+    DialogActions,
+} from '@salt-ds/core';
+import styles from './PostCreate.module.css';
 
 const PostCreateToolbar = () => {
     const notify = useNotify();
@@ -51,7 +58,7 @@ const PostCreateToolbar = () => {
                         redirect('show', 'posts', data.id);
                     },
                 }}
-                sx={{ display: { xs: 'none', sm: 'flex' } }}
+                className={styles.hiddenOnMobile}
             />
             <SaveButton
                 label="post.action.save_and_add"
@@ -82,7 +89,7 @@ const PostCreateToolbar = () => {
                     },
                 }}
                 transform={data => ({ ...data, average_note: 10 })}
-                sx={{ display: { xs: 'none', sm: 'flex' } }}
+                className={styles.hiddenOnMobile}
             />
         </Toolbar>
     );
@@ -107,7 +114,7 @@ const PostCreate = () => {
             <SimpleFormConfigurable
                 toolbar={<PostCreateToolbar />}
                 defaultValues={defaultValues}
-                sx={{ maxWidth: { md: 'auto', lg: '30em' } }}
+                className={styles.formContainer}
             >
                 <FileInput
                     source="pdffile"
@@ -232,8 +239,9 @@ const CreateUser = () => {
     };
 
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
+                <DialogHeader header="Create User" />
                 <DialogContent>
                     <TextInput
                         source="name"
@@ -253,8 +261,12 @@ const CreateUser = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button type="submit" variant="cta">
+                        Save
+                    </Button>
+                    <Button onClick={onCancel} variant="secondary">
+                        Cancel
+                    </Button>
                 </DialogActions>
             </form>
         </Dialog>

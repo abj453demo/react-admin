@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {
     Dialog,
-    DialogTitle,
+    DialogHeader,
     DialogContent,
     DialogActions,
-} from '@mui/material';
+} from '@salt-ds/core';
 import { useCallback } from 'react';
 import {
     SaveButton,
@@ -48,12 +48,11 @@ const PostQuickCreate = props => {
         <Dialog
             data-testid="dialog-add-post"
             open
-            fullWidth
-            onClose={onCancel}
+            onOpenChange={open => !open && onCancel()}
             aria-label={translate('simple.create-post')}
         >
             <Form onSubmit={handleSave} {...props}>
-                <DialogTitle>{translate('simple.create-post')}</DialogTitle>
+                <DialogHeader header={translate('simple.create-post')} />
                 <DialogContent>
                     <TextInput
                         defaultValue=""

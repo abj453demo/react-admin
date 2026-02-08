@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Fragment, useState } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import {
     ListBase,
     ListActions,
@@ -8,102 +8,171 @@ import {
     Title,
 } from 'react-admin';
 import {
-    Box,
-    List,
-    ListItem,
-    ListItemText,
-    Collapse,
-    Card,
-    Stack,
-    ListItemButton,
-} from '@mui/material';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+    Card as SaltCard,
+    FlowLayout,
+    StackLayout,
+    Text,
+    Button,
+} from '@salt-ds/core';
+import { ChevronDownIcon, ChevronRightIcon } from '@salt-ds/icons';
+
+import styles from './TagList.module.css';
+
+interface TagRecord {
+    id: string;
+    name: { en: string };
+    parent_id?: string;
+}
+
+interface TagTreeNode {
+    id: string;
+    name: string;
+    record: TagRecord;
+    childNodes?: TagTreeNode[];
+}
 
 const TagList = () => (
     <ListBase perPage={1000}>
-        <Stack>
+        <StackLayout>
             <ListActions />
-            <Box maxWidth="20em" marginTop="1em">
-                <Card>
-                    <Tree />
-                </Card>
-            </Box>
-        </Stack>
+            <div
+                style={{
+                    maxWidth: '20em',
+                    marginTop: 'var(--salt-spacing-100)',
+                }}
+            >
+                <SaltCard className={styles.tagCard}>
+                    <TagTree />
+                </SaltCard>
+            </div>
+        </StackLayout>
     </ListBase>
 );
 
-const Tree = () => {
-    const { data, defaultTitle } = useListContext();
-    const [openChildren, setOpenChildren] = useState<string[]>([]);
-    const toggleNode = node =>
-        setOpenChildren(state => {
-            if (state.includes(node.id)) {
-                return [
-                    ...state.splice(0, state.indexOf(node.id)),
-                    ...state.splice(state.indexOf(node.id) + 1, state.length),
-                ];
+const TagTree = () => {
+    const { data, defaultTitle } = useListContext<TagRecord>();
+    const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set());
+
+    const toggleNode = useCallback((nodeId: string) => {
+        setExpandedNodes(prev => {
+            const next = new Set(prev);
+            if (next.has(nodeId)) {
+                next.delete(nodeId);
+            } else {
+                next.add(nodeId);
             }
-            return [...state, node.id];
+            return next;
         });
-    const roots = data
-        ? data.filter(node => typeof node.parent_id === 'undefined')
-        : [];
-    const getChildNodes = root =>
-        data ? data.filter(node => node.parent_id === root.id) : [];
+    }, []);
+
+    const treeSource = useMemo(() => {
+        if (!data) return [];
+
+        const buildTree = (parentId?: string): TagTreeNode[] => {
+            return data
+                .filter(node =>
+                    parentId === undefined
+                        ? typeof node.parent_id === 'undefined'
+                        : node.parent_id === parentId
+                )
+                .map(node => {
+                    const children = buildTree(node.id);
+                    return {
+                        id: node.id,
+                        name: node.name.en,
+                        record: node,
+                        childNodes: children.length > 0 ? children : undefined,
+                    };
+                });
+        };
+
+        return buildTree();
+    }, [data]);
 
     return (
-        <List>
+        <StackLayout gap={0}>
             <Title defaultTitle={defaultTitle} />
-            {roots.map(root => (
-                <SubTree
-                    key={root.id}
-                    root={root}
-                    getChildNodes={getChildNodes}
-                    openChildren={openChildren}
-                    toggleNode={toggleNode}
-                    level={0}
-                />
-            ))}
-        </List>
+            <ul role="tree" className={styles.tree}>
+                {treeSource.map(root => (
+                    <TreeNodeItem
+                        key={root.id}
+                        node={root}
+                        level={0}
+                        expandedNodes={expandedNodes}
+                        onToggle={toggleNode}
+                    />
+                ))}
+            </ul>
+        </StackLayout>
     );
 };
 
-const SubTree = ({ level, root, getChildNodes, openChildren, toggleNode }) => {
-    const childNodes = getChildNodes(root);
-    const hasChildren = childNodes.length > 0;
-    const open = openChildren.includes(root.id);
+interface TreeNodeItemProps {
+    node: TagTreeNode;
+    level: number;
+    expandedNodes: Set<string>;
+    onToggle: (nodeId: string) => void;
+}
+
+const TreeNodeItem = ({
+    node,
+    level,
+    expandedNodes,
+    onToggle,
+}: TreeNodeItemProps) => {
+    const hasChildren = node.childNodes && node.childNodes.length > 0;
+    const isExpanded = expandedNodes.has(node.id);
+
     return (
-        <Fragment>
-            <ListItem
-                disablePadding
-                sx={theme => ({
-                    paddingLeft: theme.spacing(level * 2),
-                })}
-                secondaryAction={<EditButton record={root} />}
+        <li
+            role="treeitem"
+            aria-expanded={hasChildren ? isExpanded : undefined}
+            aria-selected={false}
+        >
+            <FlowLayout
+                gap={1}
+                align="center"
+                className={styles.treeItem}
+                style={{
+                    paddingLeft: `calc(var(--salt-spacing-200) * ${level})`,
+                }}
             >
-                <ListItemButton onClick={() => hasChildren && toggleNode(root)}>
-                    {hasChildren && open && <ExpandLess />}
-                    {hasChildren && !open && <ExpandMore />}
-                    {!hasChildren && <div style={{ width: 24 }}>&nbsp;</div>}
-                    <ListItemText primary={root.name.en} />
-                </ListItemButton>
-            </ListItem>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    {childNodes.map(node => (
-                        <SubTree
-                            key={node.id}
-                            root={node}
-                            getChildNodes={getChildNodes}
-                            openChildren={openChildren}
-                            toggleNode={toggleNode}
+                {hasChildren ? (
+                    <Button
+                        variant="secondary"
+                        appearance="transparent"
+                        onClick={() => onToggle(node.id)}
+                        aria-label={isExpanded ? 'Collapse' : 'Expand'}
+                        className={styles.toggleButton}
+                    >
+                        {isExpanded ? (
+                            <ChevronDownIcon />
+                        ) : (
+                            <ChevronRightIcon />
+                        )}
+                    </Button>
+                ) : (
+                    <span className={styles.togglePlaceholder} />
+                )}
+                <Text styleAs="label" className={styles.nodeLabel}>
+                    {node.name}
+                </Text>
+                <EditButton record={node.record} />
+            </FlowLayout>
+            {hasChildren && isExpanded && (
+                <ul role="group" className={styles.childNodes}>
+                    {node.childNodes?.map(child => (
+                        <TreeNodeItem
+                            key={child.id}
+                            node={child}
                             level={level + 1}
+                            expandedNodes={expandedNodes}
+                            onToggle={onToggle}
                         />
                     ))}
-                </List>
-            </Collapse>
-        </Fragment>
+                </ul>
+            )}
+        </li>
     );
 };
 

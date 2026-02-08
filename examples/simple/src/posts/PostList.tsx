@@ -1,7 +1,8 @@
 import * as React from 'react';
-import BookIcon from '@mui/icons-material/Book';
-import { Chip, useMediaQuery } from '@mui/material';
-import { Theme } from '@mui/material/styles';
+import { DocumentIcon } from '@salt-ds/icons';
+import { Pill } from '@salt-ds/core';
+import { useIsSmall } from '../utils/useResponsive';
+import styles from './PostList.module.css';
 import lodashGet from 'lodash/get.js';
 import jsonExport from 'jsonexport/dist';
 import {
@@ -33,7 +34,7 @@ import {
 
 import ResetViewsButton from './ResetViewsButton';
 
-export const PostIcon = BookIcon;
+export const PostIcon = DocumentIcon;
 
 const QuickFilter = ({
     label,
@@ -43,7 +44,7 @@ const QuickFilter = ({
     defaultValue?: any;
 }) => {
     const translate = useTranslate();
-    return <Chip sx={{ marginBottom: 1 }} label={translate(label)} />;
+    return <Pill style={{ marginBottom: 8 }}>{translate(label)}</Pill>;
 };
 
 const postFilter = [
@@ -135,31 +136,14 @@ const PostListDesktop = () => (
             rowClick={rowClick}
             expand={PostPanel}
             hiddenColumns={['average_note']}
-            sx={{
-                '& .hiddenOnSmallScreens': {
-                    display: {
-                        xs: 'none',
-                        lg: 'table-cell',
-                    },
-                },
-            }}
+            className={styles.dataTable}
         >
             <DataTable.Col source="id" />
-            <DataTable.Col
-                source="title"
-                sx={{
-                    maxWidth: '16em',
-                    '&.MuiTableCell-body': {
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                    },
-                }}
-            />
+            <DataTable.Col source="title" className={styles.titleCell} />
             <DataTable.Col
                 source="published_at"
                 sortByOrder="DESC"
-                sx={{ '&.MuiTableCell-body': { fontStyle: 'italic' } }}
+                className={styles.publishedAtCell}
                 field={DateField}
             />
             <DataTable.Col
@@ -182,8 +166,7 @@ const PostListDesktop = () => (
             <DataTable.Col
                 label="Tags"
                 source="tags.name"
-                className="hiddenOnSmallScreens"
-                sx={{ minWidth: '9em' }}
+                className={`${styles.hiddenOnSmallScreens} ${styles.tagsCell}`}
             >
                 <ReferenceArrayField
                     source="tags"
@@ -197,9 +180,9 @@ const PostListDesktop = () => (
             </DataTable.Col>
             <DataTable.NumberCol
                 source="average_note"
-                className="hiddenOnSmallScreens"
+                className={styles.hiddenOnSmallScreens}
             />
-            <DataTable.Col sx={{ textAlign: 'center' }}>
+            <DataTable.Col className={styles.actionsCell}>
                 <EditButton />
                 <ShowButton />
             </DataTable.Col>
@@ -208,10 +191,7 @@ const PostListDesktop = () => (
 );
 
 const PostList = () => {
-    const isSmall = useMediaQuery<Theme>(
-        theme => theme.breakpoints.down('md'),
-        { noSsr: true }
-    );
+    const isSmall = useIsSmall();
     return isSmall ? <PostListMobile /> : <PostListDesktop />;
 };
 

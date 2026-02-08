@@ -12,6 +12,10 @@
     "dependencies": {
         "@mui/icons-material": "^5.16.12",
         "@mui/material": "^5.16.12",
+        "@salt-ds/core": "^1.55.0",
+        "@salt-ds/icons": "^1.17.1",
+        "@salt-ds/lab": "^1.0.0-alpha.84",
+        "@salt-ds/theme": "^1.38.1",
         "@tanstack/react-query": "^5.90.2",
         "@tanstack/react-query-devtools": "^5.90.2",
         "fakerest": "^4.1.3",

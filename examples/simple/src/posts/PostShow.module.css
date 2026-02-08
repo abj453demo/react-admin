@@ -1,0 +1,5 @@
+.inPlaceEditorViews :global(.RaInPlaceEditor-reading) div,
+.inPlaceEditorViews :global(.RaInPlaceEditor-saving) div,
+.inPlaceEditorViews :global(.RaInPlaceEditor-editing) input {
+    font-size: 14px;
+}

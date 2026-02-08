@@ -1,0 +1,14 @@
+.root {
+    width: 0;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+@media (min-width: 900px) {
+    .root {
+        width: 200px;
+        margin: var(--salt-spacing-100, 1em);
+        overflow-x: visible;
+    }
+}
+
