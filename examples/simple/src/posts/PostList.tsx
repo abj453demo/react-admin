@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Pill, useBreakpoint } from '@salt-ds/core';
+import { BookmarkIcon } from '@salt-ds/icons';
 import BookIcon from '@mui/icons-material/Book';
 import { Chip, useMediaQuery } from '@mui/material';
 import { Theme } from '@mui/material/styles';

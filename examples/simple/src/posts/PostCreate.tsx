@@ -28,6 +28,12 @@ import {
     CanAccess,
 } from 'react-admin';
 import { useFormContext, useWatch } from 'react-hook-form';
+import {
+    Button as SaltButton,
+    Dialog as SaltDialog,
+    DialogActions as SaltDialogActions,
+    DialogContent as SaltDialogContent,
+} from '@salt-ds/core';
 import { Button, Dialog, DialogActions, DialogContent } from '@mui/material';
 
 const PostCreateToolbar = () => {

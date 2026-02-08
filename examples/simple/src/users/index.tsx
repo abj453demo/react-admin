@@ -1,3 +1,4 @@
+import { UserGroupIcon } from '@salt-ds/icons';
 import PeopleIcon from '@mui/icons-material/People';
 import UserCreate from './UserCreate';
 import UserEdit from './UserEdit';

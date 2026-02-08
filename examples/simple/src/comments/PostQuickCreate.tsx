@@ -1,5 +1,11 @@
 import * as React from 'react';
 import {
+    Dialog as SaltDialog,
+    DialogHeader,
+    DialogContent as SaltDialogContent,
+    DialogActions as SaltDialogActions,
+} from '@salt-ds/core';
+import {
     Dialog,
     DialogTitle,
     DialogContent,

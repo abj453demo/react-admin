@@ -2,6 +2,13 @@ import * as React from 'react';
 import { Fragment, useState, useCallback } from 'react';
 import { useWatch } from 'react-hook-form';
 import {
+    Button as SaltButton,
+    Dialog as SaltDialog,
+    DialogHeader,
+    DialogContent as SaltDialogContent,
+    DialogActions as SaltDialogActions,
+} from '@salt-ds/core';
+import {
     Button,
     Dialog,
     DialogTitle,
