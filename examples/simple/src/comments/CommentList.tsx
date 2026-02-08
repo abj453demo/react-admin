@@ -4,9 +4,9 @@ import {
     Card as SaltCard,
     StackLayout,
     Text,
+    FlowLayout,
 } from '@salt-ds/core';
 import { UserIcon } from '@salt-ds/icons';
-import { Grid } from '@mui/material';
 import { CardHeader, CardContent, CardActions } from '../components/ui';
 import { useIsMediumDown } from '../utils/useResponsive';
 import jsonExport from 'jsonexport/dist';
@@ -66,9 +66,12 @@ const CommentGrid = () => {
 
     if (!data) return null;
     return (
-        <Grid spacing={2} container>
+        <FlowLayout gap={2} style={{ flexWrap: 'wrap' }}>
             {data.map(record => (
-                <Grid item key={record.id} sm={12} md={6} lg={4}>
+                <div
+                    key={record.id}
+                    style={{ minWidth: 300, flex: '1 1 300px' }}
+                >
                     <SaltCard
                         style={{
                             height: '100%',
@@ -124,9 +127,9 @@ const CommentGrid = () => {
                             </CardActions>
                         </StackLayout>
                     </SaltCard>
-                </Grid>
+                </div>
             ))}
-        </Grid>
+        </FlowLayout>
     );
 };
 
