@@ -28,10 +28,10 @@
 | 2 | TextField to Input (PostEdit) | ✅ Success | MUI TextField → Salt FormField + FormFieldLabel + Input in CreateCategory dialog | [after](docs/migration-recordings/refactor_textfield_to_input_PostEdit_after.webm) |
 | 2 | TextField to Input (CommentEdit) | ✅ Success | MUI TextField → Salt FormField + FormFieldLabel + Input | [after](docs/migration-recordings/refactor_card_composition_CommentEdit_after.mp4) |
 | 2 | Styled to CSS Module (Aside) | ✅ Success | MUI styled() → CSS module with Salt spacing token var(--salt-spacing-100) | |
-| 3 | Icons Cleanup | ⏳ Pending | | |
-| 3 | sx Props Cleanup | ⏳ Pending | | |
-| 3 | Imports Cleanup | ⏳ Pending | | |
-| 3 | Theme Removal | ⏳ Pending | | |
+| 3 | Icons Cleanup | ✅ Success | Replaced MUI icons with Salt equivalents (BookIcon→DocumentIcon, PeopleIcon→UserGroupIcon, PersonIcon→UserIcon, ChatBubbleIcon→ChatIcon, VisibilityOff→HiddenIcon, IconCancel→CloseIcon) | [after](docs/migration-recordings/cleanup_all_after.webm) |
+| 3 | sx Props Cleanup | ✅ Success | Converted sx props to CSS modules/inline styles with Salt tokens (8 files) | [after](docs/migration-recordings/cleanup_all_after.webm) |
+| 3 | Imports Cleanup | ✅ Success | Removed all remaining @mui/material imports | [after](docs/migration-recordings/cleanup_all_after.webm) |
+| 3 | Theme Removal | ✅ Success | No MUI theme usage found - skipped (already clean) | |
 
 Status legend: ⏳ Pending | 🔄 In Progress | ✅ Success | ❌ Failed | ⚠️ Partial
 
