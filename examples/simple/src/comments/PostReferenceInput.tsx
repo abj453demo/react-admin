@@ -2,19 +2,12 @@ import * as React from 'react';
 import { Fragment, useState, useCallback } from 'react';
 import { useWatch } from 'react-hook-form';
 import {
-    Button as SaltButton,
-    Dialog as SaltDialog,
-    DialogHeader,
-    DialogContent as SaltDialogContent,
-    DialogActions as SaltDialogActions,
-} from '@salt-ds/core';
-import {
     Button,
     Dialog,
-    DialogTitle,
+    DialogHeader,
     DialogContent,
     DialogActions,
-} from '@mui/material';
+} from '@salt-ds/core';
 import {
     ReferenceInput,
     SelectInput,
@@ -61,21 +54,21 @@ const PostReferenceInput = () => {
                 <Fragment>
                     <Button
                         data-testid="button-show-post"
-                        sx={{ margin: '10px 24px', position: 'relative' }}
+                        style={{ margin: '10px 24px', position: 'relative' }}
                         onClick={handleShowClick}
                     >
                         {translate('ra.action.show')}
                     </Button>
                     <Dialog
                         data-testid="dialog-show-post"
-                        fullWidth
                         open={showPreviewDialog}
-                        onClose={handleCloseShow}
+                        onOpenChange={open => !open && handleCloseShow()}
                         aria-label={translate('simple.create-post')}
+                        style={{ width: '100%', maxWidth: '600px' }}
                     >
-                        <DialogTitle>
-                            {translate('simple.create-post')}
-                        </DialogTitle>
+                        <DialogHeader
+                            header={translate('simple.create-post')}
+                        />
                         <DialogContent>
                             <PostPreview id={postId} resource="posts" />
                         </DialogContent>
