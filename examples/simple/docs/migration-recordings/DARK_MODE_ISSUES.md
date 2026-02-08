@@ -2,18 +2,11 @@
 
 ## Summary
 
-This document summarizes the dark mode verification testing for the MUI to Salt DS migration. The testing was conducted with:
-- `SaltProvider mode="dark"` wrapping the application
-- `Admin defaultTheme="dark"` prop set on the React Admin component
+This document summarizes the dark mode verification testing for the MUI to Salt DS migration. The testing was conducted using the **built-in dark mode toggle** in the application header.
 
-## Dark Mode Configuration
+## Dark Mode Toggle
 
-To enable dark mode in the migrated application, **both** of the following are required:
-
-1. **SaltProvider**: Set `mode="dark"` on the SaltProvider wrapper
-2. **Admin Component**: Set `defaultTheme="dark"` on the Admin component
-
-Without the `defaultTheme="dark"` prop on the Admin component, the React Admin components will not respond to the Salt DS dark mode tokens.
+The application includes a working dark mode toggle button in the top-right header area. Clicking this toggle successfully switches between light and dark modes.
 
 ## Pages/Views Tested
 
@@ -23,36 +16,27 @@ Without the `defaultTheme="dark"` prop on the Admin component, the React Admin c
 - Posts Show
 - Comments List (Card-based layout)
 - Comments Edit
-- Comments Create
 - Tags List (Tree view)
 - Tags Edit (Translatable inputs)
 - Responsive/Mobile view (400px viewport)
 
 ## Dark Mode Issues Identified
 
-### Issue 1: Tags Chips in Posts List (Desktop View)
-- **Location**: Posts List page, Tags column
-- **Description**: The tag chips ("Code", "Music", "Photo", "Sport") initially appeared with light backgrounds when only SaltProvider mode="dark" was set, without the Admin defaultTheme="dark" prop
-- **Status**: Resolved when both dark mode configurations are applied
-
-### Issue 2: Rich Text Editor Background
-- **Location**: Posts Edit/Create pages, Body tab
-- **Description**: The rich text editor (TipTap/ProseMirror) toolbar and content area may have styling that doesn't fully adapt to dark mode
-- **Severity**: Minor - the editor is functional but may have some visual inconsistencies
-
-### Issue 3: Initial Configuration Requirement
-- **Location**: Application-wide
-- **Description**: Setting only `SaltProvider mode="dark"` is NOT sufficient for dark mode. The `Admin defaultTheme="dark"` prop is also required for React Admin components to render in dark mode
-- **Impact**: This is a critical configuration requirement that must be documented for users
+### Issue 1: Tags Tree View Component - White Background
+- **Location**: Tags List page
+- **Description**: The Tags tree view component has a **white background** that does not adapt to dark mode. When the rest of the application is in dark mode (dark backgrounds, light text), the Tags tree view retains a white background with dark text.
+- **Severity**: High - This is a significant visual inconsistency
+- **Visual Impact**: The bright white box clashes sharply with the dark interface, creating an inconsistent user experience
 
 ## Components Working Correctly in Dark Mode
 
 - App Bar / Header
 - Sidebar Navigation
-- Data Grid / Tables
+- Data Grid / Tables (Posts list)
 - Form inputs (TextInput, SelectInput, DateInput, etc.)
 - Toggle switches
 - Cards (Comments list)
+- Rich Text Editor (Body tab in Posts Edit)
 - Snackbar notifications
 - Floating Action Button (FAB)
 - Pagination controls
@@ -61,11 +45,7 @@ Without the `defaultTheme="dark"` prop on the Admin component, the React Admin c
 
 ## Recommendations
 
-1. **Documentation**: Clearly document that both `SaltProvider mode="dark"` AND `Admin defaultTheme="dark"` are required for full dark mode support
-
-2. **Theme Toggle**: Consider implementing a theme toggle component that synchronizes both the SaltProvider mode and Admin defaultTheme props
-
-3. **Rich Text Editor**: Review the rich text editor styling to ensure full dark mode compatibility
+1. **Tags Tree View**: The tree view component used on the Tags page needs to be updated to support dark mode theming. The component should inherit the dark background color from the theme.
 
 ## Recording
 
@@ -73,6 +53,7 @@ A screen recording of the dark mode walkthrough is available at:
 `docs/migration-recordings/migration_dark_mode.webm`
 
 The recording demonstrates:
+- Using the dark mode toggle to enable dark mode
 - Navigation through all pages in dark mode
-- Form interactions
+- The Tags tree view dark mode issue
 - Responsive behavior at mobile viewport sizes
