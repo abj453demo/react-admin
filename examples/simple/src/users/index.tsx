@@ -1,5 +1,4 @@
 import { UserGroupIcon } from '@salt-ds/icons';
-import PeopleIcon from '@mui/icons-material/People';
 import UserCreate from './UserCreate';
 import UserEdit from './UserEdit';
 import UserList from './UserList';
@@ -10,6 +9,6 @@ export default {
     create: UserCreate,
     edit: UserEdit,
     show: UserShow,
-    icon: PeopleIcon,
+    icon: UserGroupIcon,
     recordRepresentation: record => `${record.name} (${record.role})`,
 };

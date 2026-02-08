@@ -19,8 +19,6 @@ import {
     Card,
     ListItemButton,
 } from '@mui/material';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const TagList = () => (
     <ListBase perPage={1000}>
@@ -85,8 +83,8 @@ const SubTree = ({ level, root, getChildNodes, openChildren, toggleNode }) => {
                 secondaryAction={<EditButton record={root} />}
             >
                 <ListItemButton onClick={() => hasChildren && toggleNode(root)}>
-                    {hasChildren && open && <ExpandLess />}
-                    {hasChildren && !open && <ExpandMore />}
+                    {hasChildren && open && <ChevronUpIcon />}
+                    {hasChildren && !open && <ChevronDownIcon />}
                     {!hasChildren && <div style={{ width: 24 }}>&nbsp;</div>}
                     <ListItemText primary={root.name.en} />
                 </ListItemButton>
