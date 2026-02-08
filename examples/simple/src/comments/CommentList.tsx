@@ -6,13 +6,7 @@ import {
     Text,
 } from '@salt-ds/core';
 import { UserIcon } from '@salt-ds/icons';
-import {
-    Card,
-    CardActions,
-    CardContent,
-    CardHeader,
-    Grid,
-} from '@mui/material';
+import { Card, CardActions, CardContent, CardHeader } from '@mui/material';
 import { useIsMediumDown } from '../utils/useResponsive';
 import jsonExport from 'jsonexport/dist';
 import {
@@ -71,9 +65,12 @@ const CommentGrid = () => {
 
     if (!data) return null;
     return (
-        <Grid spacing={2} container>
+        <FlowLayout gap={2} wrap>
             {data.map(record => (
-                <Grid item key={record.id} sm={12} md={6} lg={4}>
+                <div
+                    key={record.id}
+                    style={{ minWidth: 300, flex: '1 1 300px' }}
+                >
                     <Card
                         sx={{
                             height: '100%',
@@ -125,9 +122,9 @@ const CommentGrid = () => {
                             <ShowButton record={record} />
                         </CardActions>
                     </Card>
-                </Grid>
+                </div>
             ))}
-        </Grid>
+        </FlowLayout>
     );
 };
 

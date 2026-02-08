@@ -15,7 +15,7 @@ import {
     DialogActions,
     Input,
 } from '@salt-ds/core';
-import { Box, TextField as MuiTextField } from '@mui/material';
+import { TextField as MuiTextField } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
@@ -35,10 +35,9 @@ const TagReferenceInput = ({
     };
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'row',
+        <FlexLayout
+            direction="row"
+            style={{
                 justifyContent: 'flex-start',
                 width: '50%',
             }}
@@ -59,7 +58,7 @@ const TagReferenceInput = ({
             >
                 Filter {published ? 'Unpublished' : 'Published'} Tags
             </Button>
-        </Box>
+        </FlexLayout>
     );
 };
 
