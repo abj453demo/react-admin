@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
     Avatar as SaltAvatar,
     Card as SaltCard,
-    FlowLayout,
     StackLayout,
     Text,
 } from '@salt-ds/core';

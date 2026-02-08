@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {
-    FlexLayout,
     Card as SaltCard,
-    Text,
     Dialog,
     DialogContent,
     DialogActions,
