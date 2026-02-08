@@ -13,7 +13,7 @@
 
 | Phase | Task | Status | Notes | Recording |
 |-------|------|--------|-------|----------|
-| 0 | Infrastructure Setup | Pending | | |
+| 0 | Infrastructure Setup | ✅ Success | PR #40 | [after](docs/migration-recordings/infrastructure_after.webm) |
 | 0.5 | Add Salt Imports | Pending | | |
 | 1 | Dialog Swap | Pending | 6 files | |
 | 1 | Button Swap | Pending | 5 files | |
