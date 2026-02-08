@@ -59,12 +59,14 @@ const TagReferenceInput = ({
             </ReferenceArrayInput>
             <Button
                 variant="secondary"
+                type="button"
                 name="change-filter"
                 onClick={handleChangePublishedFilter}
                 style={{ margin: '0 24px', position: 'relative' }}
             >
                 Filter {published ? 'Unpublished' : 'Published'} Tags
             </Button>
+
         </Box>
     );
 };
