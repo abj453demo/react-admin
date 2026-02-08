@@ -99,7 +99,9 @@ const CreatePost = () => {
                         <FormFieldLabel>New post title</FormFieldLabel>
                         <Input
                             value={value}
-                            onChange={event => setValue(event.target.value)}
+                            onChange={(
+                                event: React.ChangeEvent<HTMLInputElement>
+                            ) => setValue(event.target.value)}
                             autoFocus
                         />
                     </FormField>
