@@ -144,7 +144,7 @@ const CommentMobileList = () => (
         tertiaryText={record =>
             new Date(record.created_at).toLocaleDateString()
         }
-        leftAvatar={() => <SaltAvatar fallbackIcon={<UserIcon />} />}
+        leftAvatar={() => <UserIcon />}
     />
 );
 
