@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styles from './PostShow.module.css';
 import {
     ArrayField,
     BooleanField,
@@ -94,20 +95,9 @@ const PostShow = () => {
                         />
                         <NumberField source="average_note" />
                         <BooleanField source="commentable" />
-                        <InPlaceEditor
-                            source="views"
-                            sx={{
-                                '& .RaInPlaceEditor-reading div': {
-                                    fontSize: 14,
-                                },
-                                '& .RaInPlaceEditor-saving div': {
-                                    fontSize: 14,
-                                },
-                                '& .RaInPlaceEditor-editing input': {
-                                    fontSize: 14,
-                                },
-                            }}
-                        />
+                        <div className={styles.inPlaceEditor}>
+                            <InPlaceEditor source="views" />
+                        </div>
                         <CloneButton />
                     </TabbedShowLayout.Tab>
                     <TabbedShowLayout.Tab
@@ -116,7 +106,7 @@ const PostShow = () => {
                             <ReferenceManyCount
                                 reference="comments"
                                 target="post_id"
-                                sx={{ lineHeight: 'inherit' }}
+                                style={{ lineHeight: 'inherit' }}
                             />
                         }
                     >

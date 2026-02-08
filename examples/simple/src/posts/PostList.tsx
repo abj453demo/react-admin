@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Pill } from '@salt-ds/core';
 import { BookmarkIcon } from '@salt-ds/icons';
 import { useIsMediumDown } from '../utils/useResponsive';
+import styles from './PostList.module.css';
 import lodashGet from 'lodash/get.js';
 import jsonExport from 'jsonexport/dist';
 import {
@@ -135,31 +136,13 @@ const PostListDesktop = () => (
             rowClick={rowClick}
             expand={PostPanel}
             hiddenColumns={['average_note']}
-            sx={{
-                '& .hiddenOnSmallScreens': {
-                    display: {
-                        xs: 'none',
-                        lg: 'table-cell',
-                    },
-                },
-            }}
         >
             <DataTable.Col source="id" />
-            <DataTable.Col
-                source="title"
-                sx={{
-                    maxWidth: '16em',
-                    '&.MuiTableCell-body': {
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                    },
-                }}
-            />
+            <DataTable.Col source="title" className={styles.titleCell} />
             <DataTable.Col
                 source="published_at"
                 sortByOrder="DESC"
-                sx={{ '&.MuiTableCell-body': { fontStyle: 'italic' } }}
+                className={styles.italicCell}
                 field={DateField}
             />
             <DataTable.Col
@@ -182,8 +165,7 @@ const PostListDesktop = () => (
             <DataTable.Col
                 label="Tags"
                 source="tags.name"
-                className="hiddenOnSmallScreens"
-                sx={{ minWidth: '9em' }}
+                className={`${styles.hiddenOnSmallScreens} ${styles.tagsCell}`}
             >
                 <ReferenceArrayField
                     source="tags"
@@ -199,7 +181,7 @@ const PostListDesktop = () => (
                 source="average_note"
                 className="hiddenOnSmallScreens"
             />
-            <DataTable.Col sx={{ textAlign: 'center' }}>
+            <DataTable.Col className={styles.actionsCell}>
                 <EditButton />
                 <ShowButton />
             </DataTable.Col>

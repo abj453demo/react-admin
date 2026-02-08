@@ -27,7 +27,7 @@ import Aside from './Aside';
 const UserEditToolbar = props => {
     return (
         <Toolbar
-            sx={{ display: 'flex', justifyContent: 'space-between' }}
+            style={{ display: 'flex', justifyContent: 'space-between' }}
             {...props}
         >
             <SaveButton />

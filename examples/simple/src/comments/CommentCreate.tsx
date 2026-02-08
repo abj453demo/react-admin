@@ -1,4 +1,5 @@
 import * as React from 'react';
+import styles from './CommentCreate.module.css';
 
 import {
     Create,
@@ -13,7 +14,7 @@ const now = new Date();
 
 const CommentCreate = () => (
     <Create redirect={false}>
-        <SimpleFormConfigurable sx={{ maxWidth: { md: 'auto', lg: '30em' } }}>
+        <SimpleFormConfigurable className={styles.form}>
             <PostReferenceInput />
             <TextInput source="author.name" validate={minLength(10)} />
             <DateInput source="created_at" defaultValue={now} />
