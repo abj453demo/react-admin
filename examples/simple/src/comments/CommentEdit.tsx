@@ -1,5 +1,16 @@
 import * as React from 'react';
 import {
+    FlexLayout,
+    Card as SaltCard,
+    Text,
+    Dialog as SaltDialog,
+    DialogContent as SaltDialogContent,
+    DialogActions as SaltDialogActions,
+    Input,
+    Button as SaltButton,
+    Button,
+} from '@salt-ds/core';
+import {
     Box,
     Card,
     Typography,
@@ -8,7 +19,6 @@ import {
     TextField as MuiTextField,
     DialogActions,
 } from '@mui/material';
-import { Button } from '@salt-ds/core';
 import {
     AutocompleteInput,
     CreateButton,

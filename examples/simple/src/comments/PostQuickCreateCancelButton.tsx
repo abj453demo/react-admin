@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { Button as SaltButton, Button } from '@salt-ds/core';
+import { CloseIcon } from '@salt-ds/icons';
 
-import { Button } from '@salt-ds/core';
 import IconCancel from '@mui/icons-material/Cancel';
 
 import { useTranslate } from 'react-admin';

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Text } from '@salt-ds/core';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 

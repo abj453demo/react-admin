@@ -33,6 +33,15 @@ import {
     CanAccess,
 } from 'react-admin';
 import {
+    FlexLayout,
+    Button as SaltButton,
+    Dialog as SaltDialog,
+    DialogActions as SaltDialogActions,
+    DialogContent as SaltDialogContent,
+    Input,
+    Button,
+} from '@salt-ds/core';
+import {
     Box,
     BoxProps,
     Dialog,
@@ -40,7 +49,6 @@ import {
     DialogContent,
     TextField as MuiTextField,
 } from '@mui/material';
-import { Button } from '@salt-ds/core';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 

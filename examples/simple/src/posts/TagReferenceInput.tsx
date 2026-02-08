@@ -8,13 +8,21 @@ import {
     useLocaleState,
 } from 'react-admin';
 import {
+    FlexLayout,
+    Button as SaltButton,
+    Dialog as SaltDialog,
+    DialogContent as SaltDialogContent,
+    DialogActions as SaltDialogActions,
+    Input,
+    Button,
+} from '@salt-ds/core';
+import {
     Box,
     Dialog,
     DialogContent,
     DialogActions,
     TextField as MuiTextField,
 } from '@mui/material';
-import { Button } from '@salt-ds/core';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
