@@ -14,7 +14,6 @@ import {
     CardContent,
     CardHeader,
     Grid,
-    Typography,
 } from '@mui/material';
 import { useIsMediumDown } from '../utils/useResponsive';
 import jsonExport from 'jsonexport/dist';
@@ -118,13 +117,9 @@ const CommentGrid = () => {
                             />
                         </CardContent>
                         <CardContent sx={{ flexGrow: 1 }}>
-                            <Typography
-                                component="span"
-                                variant="body2"
-                                data-testid="postLink"
-                            >
+                            <Text as="span" data-testid="postLink">
                                 {translate('comment.list.about')}&nbsp;
-                            </Typography>
+                            </Text>
                             <ReferenceField
                                 record={record}
                                 source="post_id"
