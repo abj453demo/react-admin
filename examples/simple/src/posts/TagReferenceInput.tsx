@@ -9,20 +9,13 @@ import {
 } from 'react-admin';
 import {
     FlexLayout,
-    Button as SaltButton,
-    Dialog as SaltDialog,
-    DialogContent as SaltDialogContent,
-    DialogActions as SaltDialogActions,
-    Input,
-} from '@salt-ds/core';
-import {
-    Box,
     Button,
     Dialog,
     DialogContent,
     DialogActions,
-    TextField as MuiTextField,
-} from '@mui/material';
+    Input,
+} from '@salt-ds/core';
+import { Box, TextField as MuiTextField } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
@@ -60,7 +53,7 @@ const TagReferenceInput = ({
             <Button
                 name="change-filter"
                 onClick={handleChangePublishedFilter}
-                sx={{ margin: '0 24px', position: 'relative' }}
+                style={{ margin: '0 24px', position: 'relative' }}
             >
                 Filter {published ? 'Unpublished' : 'Published'} Tags
             </Button>
@@ -89,7 +82,7 @@ const CreateTag = () => {
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
                     <MuiTextField
