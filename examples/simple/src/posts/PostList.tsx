@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Pill, useBreakpoint } from '@salt-ds/core';
+import { Pill } from '@salt-ds/core';
 import { BookmarkIcon } from '@salt-ds/icons';
 import BookIcon from '@mui/icons-material/Book';
-import { useMediaQuery } from '@mui/material';
-import { Theme } from '@mui/material/styles';
+import { useIsMediumDown } from '../utils/useResponsive';
 import lodashGet from 'lodash/get.js';
 import jsonExport from 'jsonexport/dist';
 import {
@@ -210,10 +209,7 @@ const PostListDesktop = () => (
 );
 
 const PostList = () => {
-    const isSmall = useMediaQuery<Theme>(
-        theme => theme.breakpoints.down('md'),
-        { noSsr: true }
-    );
+    const isSmall = useIsMediumDown();
     return isSmall ? <PostListMobile /> : <PostListDesktop />;
 };
 
