@@ -39,8 +39,10 @@ import {
     DialogActions,
     DialogContent,
     Input,
+    FormField,
+    FormFieldLabel,
 } from '@salt-ds/core';
-import { Box, BoxProps, TextField as MuiTextField } from '@mui/material';
+import { Box, BoxProps } from '@mui/material';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 
@@ -63,21 +65,26 @@ const CreateCategory = ({
         <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
-                    <MuiTextField
-                        label="New Category"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New Category</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={event => setValue(event.target.value)}
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
                     <Button variant="secondary" type="submit">
                         Save
                     </Button>
-                    <Button variant="secondary" type="button" onClick={onCancel}>
+                    <Button
+                        variant="secondary"
+                        type="button"
+                        onClick={onCancel}
+                    >
                         Cancel
                     </Button>
-
                 </DialogActions>
             </form>
         </Dialog>

@@ -8,13 +8,10 @@ import {
     DialogActions,
     Input,
     Button,
+    FormField,
+    FormFieldLabel,
 } from '@salt-ds/core';
-import {
-    Box,
-    Card,
-    Typography,
-    TextField as MuiTextField,
-} from '@mui/material';
+import { Box, Card, Typography } from '@mui/material';
 import {
     AutocompleteInput,
     CreateButton,
@@ -98,12 +95,14 @@ const CreatePost = () => {
         <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
-                    <MuiTextField
-                        label="New post title"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New post title</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={event => setValue(event.target.value)}
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
                     <Button variant="secondary" type="submit">
