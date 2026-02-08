@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {
-    FlexLayout,
     Card as SaltCard,
-    Text,
     Dialog,
     DialogContent,
     DialogActions,
@@ -11,7 +9,7 @@ import {
     FormField,
     FormFieldLabel,
 } from '@salt-ds/core';
-import { Card, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import {
     AutocompleteInput,
     CreateButton,
@@ -99,10 +97,12 @@ const CreatePost = () => {
                         <FormFieldLabel>New post title</FormFieldLabel>
                         <Input
                             value={value}
-                            onChange={(
-                                event: React.ChangeEvent<HTMLInputElement>
-                            ) => setValue(event.target.value)}
-                            autoFocus
+                            inputProps={{
+                                onChange: (
+                                    event: React.ChangeEvent<HTMLInputElement>
+                                ) => setValue(event.target.value),
+                                autoFocus: true,
+                            }}
                         />
                     </FormField>
                 </DialogContent>
@@ -134,7 +134,7 @@ const CommentEdit = props => {
                         <CreateButton resource="posts" label="Create post" />
                     </TopToolbar>
                 </div>
-                <Card style={{ marginTop: '1em', maxWidth: '30em' }}>
+                <SaltCard style={{ marginTop: '1em', maxWidth: '30em' }}>
                     {record && (
                         <SimpleForm
                             resource={resource}
@@ -180,7 +180,7 @@ const CommentEdit = props => {
                             />
                         </SimpleForm>
                     )}
-                </Card>
+                </SaltCard>
             </div>
         </EditContextProvider>
     );

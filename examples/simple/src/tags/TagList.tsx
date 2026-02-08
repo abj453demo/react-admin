@@ -7,7 +7,7 @@ import {
     EditButton,
     Title,
 } from 'react-admin';
-import { Card, StackLayout, Text, Button } from '@salt-ds/core';
+import { Card as SaltCard, StackLayout, Text, Button } from '@salt-ds/core';
 import { ChevronRightIcon, ChevronDownIcon } from '@salt-ds/icons';
 import styles from './TagList.module.css';
 
@@ -29,9 +29,9 @@ const TagList = () => (
         <StackLayout gap={0}>
             <ListActions />
             <div className={styles.treeContainer}>
-                <Card>
+                <SaltCard>
                     <TagTree />
-                </Card>
+                </SaltCard>
             </div>
         </StackLayout>
     </ListBase>
