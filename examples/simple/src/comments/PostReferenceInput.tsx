@@ -53,6 +53,7 @@ const PostReferenceInput = () => {
             {postId ? (
                 <Fragment>
                     <Button
+                        variant="secondary"
                         data-testid="button-show-post"
                         style={{ margin: '10px 24px', position: 'relative' }}
                         onClick={handleShowClick}
@@ -74,6 +75,7 @@ const PostReferenceInput = () => {
                         </DialogContent>
                         <DialogActions>
                             <Button
+                                variant="secondary"
                                 data-testid="button-close-modal"
                                 onClick={handleCloseShow}
                             >

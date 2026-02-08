@@ -253,8 +253,13 @@ const CreateUser = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button variant="secondary" type="submit">
+                        Save
+                    </Button>
+                    <Button variant="secondary" type="button" onClick={onCancel}>
+                        Cancel
+                    </Button>
+
                 </DialogActions>
             </form>
         </Dialog>

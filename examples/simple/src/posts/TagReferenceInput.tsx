@@ -51,12 +51,15 @@ const TagReferenceInput = ({
                 />
             </ReferenceArrayInput>
             <Button
+                variant="secondary"
+                type="button"
                 name="change-filter"
                 onClick={handleChangePublishedFilter}
                 style={{ margin: '0 24px', position: 'relative' }}
             >
                 Filter {published ? 'Unpublished' : 'Published'} Tags
             </Button>
+
         </Box>
     );
 };
@@ -93,8 +96,13 @@ const CreateTag = () => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button type="submit">Save</Button>
-                    <Button onClick={onCancel}>Cancel</Button>
+                    <Button variant="secondary" type="submit">
+                        Save
+                    </Button>
+                    <Button variant="secondary" type="button" onClick={onCancel}>
+                        Cancel
+                    </Button>
+
                 </DialogActions>
             </form>
         </Dialog>
