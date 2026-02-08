@@ -23,7 +23,7 @@ const root = createRoot(container);
 
 root.render(
     <React.StrictMode>
-        <SaltProvider>
+        <SaltProvider mode="dark">
             <Admin
                 authProvider={authProvider}
                 dataProvider={dataProvider}
@@ -31,6 +31,7 @@ root.render(
                 queryClient={queryClient}
                 title="Example Admin"
                 layout={Layout}
+                defaultTheme="dark"
             >
                 <Resource name="posts" {...posts} />
                 <Resource name="comments" {...comments} />
