@@ -9,20 +9,13 @@ import {
 } from 'react-admin';
 import {
     FlexLayout,
-    Button as SaltButton,
-    Dialog as SaltDialog,
-    DialogContent as SaltDialogContent,
-    DialogActions as SaltDialogActions,
-    Input,
     Button,
-} from '@salt-ds/core';
-import {
-    Box,
     Dialog,
     DialogContent,
     DialogActions,
-    TextField as MuiTextField,
-} from '@mui/material';
+    Input,
+} from '@salt-ds/core';
+import { Box, TextField as MuiTextField } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
@@ -90,7 +83,7 @@ const CreateTag = () => {
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
                     <MuiTextField

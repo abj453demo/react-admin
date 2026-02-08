@@ -3,21 +3,17 @@ import {
     FlexLayout,
     Card as SaltCard,
     Text,
-    Dialog as SaltDialog,
-    DialogContent as SaltDialogContent,
-    DialogActions as SaltDialogActions,
+    Dialog,
+    DialogContent,
+    DialogActions,
     Input,
-    Button as SaltButton,
     Button,
 } from '@salt-ds/core';
 import {
     Box,
     Card,
     Typography,
-    Dialog,
-    DialogContent,
     TextField as MuiTextField,
-    DialogActions,
 } from '@mui/material';
 import {
     AutocompleteInput,
@@ -99,7 +95,7 @@ const CreatePost = () => {
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
                     <MuiTextField

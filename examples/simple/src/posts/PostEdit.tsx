@@ -34,21 +34,13 @@ import {
 } from 'react-admin';
 import {
     FlexLayout,
-    Button as SaltButton,
-    Dialog as SaltDialog,
-    DialogActions as SaltDialogActions,
-    DialogContent as SaltDialogContent,
-    Input,
     Button,
-} from '@salt-ds/core';
-import {
-    Box,
-    BoxProps,
     Dialog,
     DialogActions,
     DialogContent,
-    TextField as MuiTextField,
-} from '@mui/material';
+    Input,
+} from '@salt-ds/core';
+import { Box, BoxProps, TextField as MuiTextField } from '@mui/material';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 
@@ -68,7 +60,7 @@ const CreateCategory = ({
         return false;
     };
     return (
-        <Dialog open onClose={onCancel}>
+        <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
                     <MuiTextField

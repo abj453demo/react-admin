@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { VisibilityOffIcon } from '@salt-ds/icons';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {
     useUpdateMany,
