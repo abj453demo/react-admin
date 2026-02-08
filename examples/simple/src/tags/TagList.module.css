@@ -1,0 +1,46 @@
+.treeContainer {
+    max-width: 20em;
+    margin-top: var(--salt-spacing-100);
+}
+
+.tree {
+    padding: var(--salt-spacing-100);
+}
+
+.treeNode {
+    display: flex;
+    align-items: center;
+    gap: var(--salt-spacing-100);
+    padding: var(--salt-spacing-50) 0;
+    min-height: 36px;
+    width: 100%;
+}
+
+.toggleButton {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+}
+
+.toggleButton:disabled {
+    opacity: 0;
+    cursor: default;
+}
+
+.spacer {
+    display: inline-block;
+    width: 24px;
+}
+
+.nodeLabel {
+    flex: 1;
+}
+
+.childNodes {
+    margin-left: 0;
+}
+
+.editButton {
+    margin-left: auto;
+}

@@ -1,20 +1,15 @@
 import * as React from 'react';
 import {
-    FlexLayout,
     Card as SaltCard,
-    Text,
     Dialog,
     DialogContent,
     DialogActions,
     Input,
     Button,
+    FormField,
+    FormFieldLabel,
 } from '@salt-ds/core';
-import {
-    Box,
-    Card,
-    Typography,
-    TextField as MuiTextField,
-} from '@mui/material';
+import { Typography } from '@mui/material';
 import {
     AutocompleteInput,
     CreateButton,
@@ -98,12 +93,18 @@ const CreatePost = () => {
         <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
-                    <MuiTextField
-                        label="New post title"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New post title</FormFieldLabel>
+                        <Input
+                            value={value}
+                            inputProps={{
+                                onChange: (
+                                    event: React.ChangeEvent<HTMLInputElement>
+                                ) => setValue(event.target.value),
+                                autoFocus: true,
+                            }}
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
                     <Button variant="secondary" type="submit">
@@ -126,14 +127,14 @@ const CommentEdit = props => {
         <EditContextProvider value={controllerProps}>
             <div className="edit-page">
                 <Title defaultTitle={controllerProps.defaultTitle} />
-                <Box sx={{ float: 'right' }}>
+                <div style={{ float: 'right' }}>
                     <TopToolbar>
                         <ShowButton record={record} />
                         {/* FIXME: added because react-router HashHistory cannot block navigation induced by address bar changes */}
                         <CreateButton resource="posts" label="Create post" />
                     </TopToolbar>
-                </Box>
-                <Card sx={{ marginTop: '1em', maxWidth: '30em' }}>
+                </div>
+                <SaltCard style={{ marginTop: '1em', maxWidth: '30em' }}>
                     {record && (
                         <SimpleForm
                             resource={resource}
@@ -179,7 +180,7 @@ const CommentEdit = props => {
                             />
                         </SimpleForm>
                     )}
-                </Card>
+                </SaltCard>
             </div>
         </EditContextProvider>
     );

@@ -2,17 +2,12 @@ import * as React from 'react';
 import {
     Avatar as SaltAvatar,
     Card as SaltCard,
-    FlowLayout,
+    StackLayout,
     Text,
+    FlowLayout,
 } from '@salt-ds/core';
 import { UserIcon } from '@salt-ds/icons';
-import {
-    Card,
-    CardActions,
-    CardContent,
-    CardHeader,
-    Grid,
-} from '@mui/material';
+import { CardHeader, CardContent, CardActions } from '../components/ui';
 import { useIsMediumDown } from '../utils/useResponsive';
 import jsonExport from 'jsonexport/dist';
 import {
@@ -71,63 +66,70 @@ const CommentGrid = () => {
 
     if (!data) return null;
     return (
-        <Grid spacing={2} container>
+        <FlowLayout gap={2} style={{ flexWrap: 'wrap' }}>
             {data.map(record => (
-                <Grid item key={record.id} sm={12} md={6} lg={4}>
-                    <Card
-                        sx={{
+                <div
+                    key={record.id}
+                    style={{ minWidth: 300, flex: '1 1 300px' }}
+                >
+                    <SaltCard
+                        style={{
                             height: '100%',
                             display: 'flex',
                             flexDirection: 'column',
                         }}
                     >
-                        <CardHeader
-                            className="comment"
-                            title={
-                                <TextField
-                                    record={record}
-                                    source="author.name"
-                                />
-                            }
-                            subheader={
-                                <DateField
-                                    record={record}
-                                    source="created_at"
-                                />
-                            }
-                            avatar={<SaltAvatar fallbackIcon={<UserIcon />} />}
-                        />
-                        <CardContent>
-                            <TextField
-                                record={record}
-                                source="body"
-                                sx={{
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    display: '-webkit-box',
-                                    WebkitLineClamp: 2,
-                                    WebkitBoxOrient: 'vertical',
-                                }}
+                        <StackLayout gap={1}>
+                            <CardHeader
+                                className="comment"
+                                title={
+                                    <TextField
+                                        record={record}
+                                        source="author.name"
+                                    />
+                                }
+                                subheader={
+                                    <DateField
+                                        record={record}
+                                        source="created_at"
+                                    />
+                                }
+                                avatar={
+                                    <SaltAvatar fallbackIcon={<UserIcon />} />
+                                }
                             />
-                        </CardContent>
-                        <CardContent sx={{ flexGrow: 1 }}>
-                            <Text as="span" data-testid="postLink">
-                                {translate('comment.list.about')}&nbsp;
-                            </Text>
-                            <ReferenceField
-                                record={record}
-                                source="post_id"
-                                reference="posts"
-                            />
-                        </CardContent>
-                        <CardActions sx={{ justifyContent: 'flex-end' }}>
-                            <EditButton record={record} />
-                            <ShowButton record={record} />
-                        </CardActions>
-                    </Card>
-                </Grid>
+                            <CardContent>
+                                <Text
+                                    style={{
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 2,
+                                        WebkitBoxOrient: 'vertical',
+                                    }}
+                                >
+                                    <TextField record={record} source="body" />
+                                </Text>
+                            </CardContent>
+                            <CardContent style={{ flexGrow: 1 }}>
+                                <Text as="span" data-testid="postLink">
+                                    {translate('comment.list.about')}&nbsp;
+                                </Text>
+                                <ReferenceField
+                                    record={record}
+                                    source="post_id"
+                                    reference="posts"
+                                />
+                            </CardContent>
+                            <CardActions justify="end">
+                                <EditButton record={record} />
+                                <ShowButton record={record} />
+                            </CardActions>
+                        </StackLayout>
+                    </SaltCard>
+                </div>
             ))}
-        </Grid>
+        </FlowLayout>
     );
 };
 

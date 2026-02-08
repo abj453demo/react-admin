@@ -14,8 +14,9 @@ import {
     DialogContent,
     DialogActions,
     Input,
+    FormField,
+    FormFieldLabel,
 } from '@salt-ds/core';
-import { Box, TextField as MuiTextField } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
@@ -35,10 +36,9 @@ const TagReferenceInput = ({
     };
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                flexDirection: 'row',
+        <FlexLayout
+            direction="row"
+            style={{
                 justifyContent: 'flex-start',
                 width: '50%',
             }}
@@ -59,8 +59,7 @@ const TagReferenceInput = ({
             >
                 Filter {published ? 'Unpublished' : 'Published'} Tags
             </Button>
-
-        </Box>
+        </FlexLayout>
     );
 };
 
@@ -88,21 +87,28 @@ const CreateTag = () => {
         <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
-                    <MuiTextField
-                        label="New tag"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New tag</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={(
+                                event: React.ChangeEvent<HTMLInputElement>
+                            ) => setValue(event.target.value)}
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
                     <Button variant="secondary" type="submit">
                         Save
                     </Button>
-                    <Button variant="secondary" type="button" onClick={onCancel}>
+                    <Button
+                        variant="secondary"
+                        type="button"
+                        onClick={onCancel}
+                    >
                         Cancel
                     </Button>
-
                 </DialogActions>
             </form>
         </Dialog>

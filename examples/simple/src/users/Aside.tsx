@@ -1,26 +1,6 @@
 import * as React from 'react';
 import { Text } from '@salt-ds/core';
-import { styled } from '@mui/material/styles';
-
-const PREFIX = 'Aside';
-
-const classes = {
-    root: `${PREFIX}-root`,
-};
-
-const Root = styled('div')(({ theme }) => ({
-    [`&.${classes.root}`]: {
-        [theme.breakpoints.up('sm')]: {
-            width: 200,
-            margin: '1em',
-        },
-        [theme.breakpoints.down('md')]: {
-            width: 0,
-            overflowX: 'hidden',
-            margin: 0,
-        },
-    },
-}));
+import styles from './Aside.module.css';
 
 const Aside = () => {
     return (
@@ -39,7 +19,7 @@ const Aside = () => {
                   },
               }}
         >*/
-        <Root className={classes.root}>
+        <div className={styles.root}>
             <Text styleAs="h4">App Users</Text>
             <Text>
                 Eiusmod adipisicing tempor duis qui. Ullamco aliqua tempor
@@ -49,7 +29,7 @@ const Aside = () => {
                 dolore elit sit occaecat ad amet tempor esse occaecat enim.
                 Laborum aliqua excepteur qui ipsum in dolor et cillum est.
             </Text>
-        </Root>
+        </div>
     );
 };
 
