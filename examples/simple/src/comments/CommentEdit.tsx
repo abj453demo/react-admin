@@ -9,7 +9,7 @@ import {
     FormField,
     FormFieldLabel,
 } from '@salt-ds/core';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import {
     AutocompleteInput,
     CreateButton,
@@ -127,13 +127,13 @@ const CommentEdit = props => {
         <EditContextProvider value={controllerProps}>
             <div className="edit-page">
                 <Title defaultTitle={controllerProps.defaultTitle} />
-                <Box sx={{ float: 'right' }}>
+                <div style={{ float: 'right' }}>
                     <TopToolbar>
                         <ShowButton record={record} />
                         {/* FIXME: added because react-router HashHistory cannot block navigation induced by address bar changes */}
                         <CreateButton resource="posts" label="Create post" />
                     </TopToolbar>
-                </Box>
+                </div>
                 <SaltCard style={{ marginTop: '1em', maxWidth: '30em' }}>
                     {record && (
                         <SimpleForm

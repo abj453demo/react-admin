@@ -9,7 +9,6 @@ import {
 } from 'react-admin';
 import { Card as SaltCard, StackLayout } from '@salt-ds/core';
 import {
-    Box,
     List,
     ListItem,
     ListItemText,
@@ -23,11 +22,11 @@ const TagList = () => (
     <ListBase perPage={1000}>
         <StackLayout gap={0}>
             <ListActions />
-            <Box maxWidth="20em" marginTop="1em">
+            <div style={{ maxWidth: '20em', marginTop: '1em' }}>
                 <SaltCard>
                     <TagTree />
                 </SaltCard>
-            </Box>
+            </div>
         </StackLayout>
     </ListBase>
 );
