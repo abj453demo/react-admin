@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Pill } from '@salt-ds/core';
 import { BookmarkIcon } from '@salt-ds/icons';
-import BookIcon from '@mui/icons-material/Book';
 import { useIsMediumDown } from '../utils/useResponsive';
 import styles from './PostList.module.css';
 import lodashGet from 'lodash/get.js';
@@ -35,7 +34,7 @@ import {
 
 import ResetViewsButton from './ResetViewsButton';
 
-export const PostIcon = BookIcon;
+export const PostIcon = BookmarkIcon;
 
 const QuickFilter = ({
     label,
