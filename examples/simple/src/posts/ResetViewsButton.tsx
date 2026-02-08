@@ -1,5 +1,5 @@
 import * as React from 'react';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { HiddenIcon } from '@salt-ds/icons';
 import {
     useUpdateMany,
     useNotify,
@@ -41,7 +41,7 @@ const ResetViewsButton = () => {
             disabled={isPending}
             onClick={() => updateMany()}
         >
-            <VisibilityOff />
+            <HiddenIcon />
         </Button>
     );
 };
