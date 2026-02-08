@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import { RichTextInput } from 'ra-input-rich-text';
+import styles from './PostCreate.module.css';
 import {
     ArrayInput,
     AutocompleteInput,
@@ -51,7 +52,7 @@ const PostCreateToolbar = () => {
                         redirect('show', 'posts', data.id);
                     },
                 }}
-                sx={{ display: { xs: 'none', sm: 'flex' } }}
+                className={styles.hiddenOnSmall}
             />
             <SaveButton
                 label="post.action.save_and_add"
@@ -82,7 +83,7 @@ const PostCreateToolbar = () => {
                     },
                 }}
                 transform={data => ({ ...data, average_note: 10 })}
-                sx={{ display: { xs: 'none', sm: 'flex' } }}
+                className={styles.hiddenOnSmall}
             />
         </Toolbar>
     );
@@ -107,7 +108,7 @@ const PostCreate = () => {
             <SimpleFormConfigurable
                 toolbar={<PostCreateToolbar />}
                 defaultValues={defaultValues}
-                sx={{ maxWidth: { md: 'auto', lg: '30em' } }}
+                className={styles.form}
             >
                 <FileInput
                     source="pdffile"

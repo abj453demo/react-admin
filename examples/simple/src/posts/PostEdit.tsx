@@ -233,7 +233,7 @@ const PostEdit = () => (
                     <ReferenceManyCount
                         reference="comments"
                         target="post_id"
-                        sx={{ lineHeight: 'inherit' }}
+                        style={{ lineHeight: 'inherit' }}
                     />
                 }
             >

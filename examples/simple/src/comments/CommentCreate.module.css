@@ -1,0 +1,10 @@
+/* Form max width */
+.form {
+    max-width: 30em;
+}
+
+@media (max-width: 1200px) {
+    .form {
+        max-width: none;
+    }
+}

@@ -18,7 +18,7 @@ const PostQuickCreateCancelButton = ({
             style={{ margin: '10px 24px', position: 'relative' }}
             onClick={onClick}
         >
-            <IconCancel sx={{ paddingRight: '0.5em' }} />
+            <IconCancel style={{ paddingRight: '0.5em' }} />
             {label && translate(label, { _: label })}
         </Button>
     );
