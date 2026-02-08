@@ -7,7 +7,7 @@ import {
     EditButton,
     Title,
 } from 'react-admin';
-import { Card, StackLayout, FlowLayout, Text, Button } from '@salt-ds/core';
+import { Card, StackLayout, Text, Button } from '@salt-ds/core';
 import { ChevronRightIcon, ChevronDownIcon } from '@salt-ds/icons';
 import styles from './TagList.module.css';
 
@@ -119,13 +119,11 @@ const TreeNode = ({ node, level, expandedIds, onToggle }: TreeNodeProps) => {
             aria-selected={false}
             aria-expanded={hasChildren ? isExpanded : undefined}
         >
-            <FlowLayout
+            <div
                 className={styles.treeNode}
                 style={{
                     paddingLeft: `calc(var(--salt-spacing-200) * ${level})`,
                 }}
-                gap={1}
-                align="center"
             >
                 <Button
                     variant="secondary"
@@ -159,8 +157,10 @@ const TreeNode = ({ node, level, expandedIds, onToggle }: TreeNodeProps) => {
                 >
                     {node.label}
                 </Text>
-                <EditButton record={node.record} />
-            </FlowLayout>
+                <span className={styles.editButton}>
+                    <EditButton record={node.record} />
+                </span>
+            </div>
             {hasChildren && isExpanded && (
                 <div role="group" className={styles.childNodes}>
                     {node.childNodes.map(childNode => (

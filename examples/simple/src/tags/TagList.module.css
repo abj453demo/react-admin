@@ -8,8 +8,12 @@
 }
 
 .treeNode {
+    display: flex;
+    align-items: center;
+    gap: var(--salt-spacing-100);
     padding: var(--salt-spacing-50) 0;
     min-height: 36px;
+    width: 100%;
 }
 
 .toggleButton {
@@ -35,4 +39,8 @@
 
 .childNodes {
     margin-left: 0;
+}
+
+.editButton {
+    margin-left: auto;
 }
