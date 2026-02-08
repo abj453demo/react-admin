@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Box, Typography } from '@mui/material';
 import {
     Button,
     Card as SaltCard,
@@ -10,6 +9,7 @@ import {
     FormField,
     FormFieldLabel,
     Input,
+    Text,
 } from '@salt-ds/core';
 import {
     AutocompleteInput,
@@ -42,9 +42,7 @@ const LinkToRelatedPost = () => {
                 id: record?.post_id,
             })}
         >
-            <Typography variant="caption" color="inherit" align="right">
-                See related post
-            </Typography>
+            <Text styleAs="label">See related post</Text>
         </RaLink>
     );
 };
@@ -99,7 +97,11 @@ const CreatePost = () => {
                         <FormFieldLabel>New post title</FormFieldLabel>
                         <Input
                             value={value}
-                            onChange={event => setValue(event.target.value)}
+                            onChange={event =>
+                                setValue(
+                                    (event.target as HTMLInputElement).value
+                                )
+                            }
                             autoFocus
                         />
                     </FormField>
@@ -125,13 +127,13 @@ const CommentEdit = props => {
         <EditContextProvider value={controllerProps}>
             <div className="edit-page">
                 <Title defaultTitle={controllerProps.defaultTitle} />
-                <Box sx={{ float: 'right' }}>
+                <div style={{ float: 'right' }}>
                     <TopToolbar>
                         <ShowButton record={record} />
                         {/* FIXME: added because react-router HashHistory cannot block navigation induced by address bar changes */}
                         <CreateButton resource="posts" label="Create post" />
                     </TopToolbar>
-                </Box>
+                </div>
                 <SaltCard style={{ marginTop: '1em', maxWidth: '30em' }}>
                     {record && (
                         <SimpleForm

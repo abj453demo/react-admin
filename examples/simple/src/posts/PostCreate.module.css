@@ -1,0 +1,19 @@
+.formContainer {
+    max-width: 30em;
+}
+
+@media (max-width: 900px) {
+    .formContainer {
+        max-width: auto;
+    }
+}
+
+.hiddenOnMobile {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .hiddenOnMobile {
+        display: flex;
+    }
+}

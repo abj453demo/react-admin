@@ -25,6 +25,7 @@ import {
     useRecordContext,
 } from 'react-admin';
 import PostTitle from './PostTitle';
+import styles from './PostShow.module.css';
 
 const CreateRelatedComment = () => {
     const record = useRecordContext();
@@ -94,20 +95,9 @@ const PostShow = () => {
                         />
                         <NumberField source="average_note" />
                         <BooleanField source="commentable" />
-                        <InPlaceEditor
-                            source="views"
-                            sx={{
-                                '& .RaInPlaceEditor-reading div': {
-                                    fontSize: 14,
-                                },
-                                '& .RaInPlaceEditor-saving div': {
-                                    fontSize: 14,
-                                },
-                                '& .RaInPlaceEditor-editing input': {
-                                    fontSize: 14,
-                                },
-                            }}
-                        />
+                        <div className={styles.inPlaceEditorViews}>
+                            <InPlaceEditor source="views" />
+                        </div>
                         <CloneButton />
                     </TabbedShowLayout.Tab>
                     <TabbedShowLayout.Tab
@@ -116,7 +106,7 @@ const PostShow = () => {
                             <ReferenceManyCount
                                 reference="comments"
                                 target="post_id"
-                                sx={{ lineHeight: 'inherit' }}
+                                style={{ lineHeight: 'inherit' }}
                             />
                         }
                     >

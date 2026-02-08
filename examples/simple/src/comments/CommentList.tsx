@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PersonIcon from '@mui/icons-material/Person';
+import { UserIcon } from '@salt-ds/icons';
 import { Avatar, Card, FlowLayout, StackLayout, Text } from '@salt-ds/core';
 import styles from './CommentList.module.css';
 import { useIsSmall } from '../utils/useResponsive';
@@ -60,7 +60,7 @@ const CommentGrid = () => {
 
     if (!data) return null;
     return (
-        <FlowLayout gap={2} wrap className={styles.commentGrid}>
+        <FlowLayout gap={2} className={styles.commentGrid}>
             {data.map(record => (
                 <div key={record.id} className={styles.commentCardWrapper}>
                     <Card className={styles.commentCard}>
@@ -71,7 +71,7 @@ const CommentGrid = () => {
                                 align="center"
                                 className={styles.cardHeader}
                             >
-                                <Avatar fallbackIcon={<PersonIcon />} />
+                                <Avatar fallbackIcon={<UserIcon />} />
                                 <StackLayout
                                     gap={0}
                                     className={styles.cardHeaderText}
@@ -134,7 +134,7 @@ const CommentMobileList = () => (
         tertiaryText={record =>
             new Date(record.created_at).toLocaleDateString()
         }
-        leftAvatar={() => <PersonIcon />}
+        leftAvatar={() => <UserIcon />}
     />
 );
 

@@ -1,0 +1,28 @@
+.hiddenOnSmallScreens {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .hiddenOnSmallScreens {
+        display: table-cell;
+    }
+}
+
+.titleCell {
+    max-width: 16em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.publishedAtCell {
+    font-style: italic;
+}
+
+.tagsCell {
+    min-width: 9em;
+}
+
+.actionsCell {
+    text-align: center;
+}

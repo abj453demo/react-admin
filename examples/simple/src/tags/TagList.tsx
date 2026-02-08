@@ -7,7 +7,6 @@ import {
     EditButton,
     Title,
 } from 'react-admin';
-import { Box, Stack } from '@mui/material';
 import {
     Card as SaltCard,
     FlowLayout,
@@ -34,14 +33,19 @@ interface TagTreeNode {
 
 const TagList = () => (
     <ListBase perPage={1000}>
-        <Stack>
+        <StackLayout>
             <ListActions />
-            <Box maxWidth="20em" marginTop="1em">
+            <div
+                style={{
+                    maxWidth: '20em',
+                    marginTop: 'var(--salt-spacing-100)',
+                }}
+            >
                 <SaltCard className={styles.tagCard}>
                     <TagTree />
                 </SaltCard>
-            </Box>
-        </Stack>
+            </div>
+        </StackLayout>
     </ListBase>
 );
 
