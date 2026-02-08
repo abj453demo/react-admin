@@ -16,7 +16,6 @@ import {
     ListItem,
     ListItemText,
     Collapse,
-    Card,
     ListItemButton,
 } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -27,9 +26,9 @@ const TagList = () => (
         <StackLayout gap={0}>
             <ListActions />
             <Box maxWidth="20em" marginTop="1em">
-                <Card>
+                <SaltCard>
                     <TagTree />
-                </Card>
+                </SaltCard>
             </Box>
         </StackLayout>
     </ListBase>
