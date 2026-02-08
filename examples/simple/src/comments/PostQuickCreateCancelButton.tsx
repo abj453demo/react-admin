@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Button as SaltButton } from '@salt-ds/core';
+import { CloseIcon } from '@salt-ds/icons';
 
 import { Button } from '@mui/material';
 import IconCancel from '@mui/icons-material/Cancel';

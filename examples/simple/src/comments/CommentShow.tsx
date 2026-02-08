@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StackLayout } from '@salt-ds/core';
 import { DateField, ReferenceField, RecordField, Show } from 'react-admin';
 import { Stack } from '@mui/material';
 

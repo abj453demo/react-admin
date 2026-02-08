@@ -8,6 +8,14 @@ import {
     useLocaleState,
 } from 'react-admin';
 import {
+    FlexLayout,
+    Button as SaltButton,
+    Dialog as SaltDialog,
+    DialogContent as SaltDialogContent,
+    DialogActions as SaltDialogActions,
+    Input,
+} from '@salt-ds/core';
+import {
     Box,
     Button,
     Dialog,

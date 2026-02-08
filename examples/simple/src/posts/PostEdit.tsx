@@ -33,6 +33,14 @@ import {
     CanAccess,
 } from 'react-admin';
 import {
+    FlexLayout,
+    Button as SaltButton,
+    Dialog as SaltDialog,
+    DialogActions as SaltDialogActions,
+    DialogContent as SaltDialogContent,
+    Input,
+} from '@salt-ds/core';
+import {
     Box,
     BoxProps,
     Button,

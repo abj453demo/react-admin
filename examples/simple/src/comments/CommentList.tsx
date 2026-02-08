@@ -1,4 +1,11 @@
 import * as React from 'react';
+import {
+    Avatar as SaltAvatar,
+    Card as SaltCard,
+    FlowLayout,
+    Text,
+} from '@salt-ds/core';
+import { UserIcon } from '@salt-ds/icons';
 import PersonIcon from '@mui/icons-material/Person';
 import {
     Avatar,

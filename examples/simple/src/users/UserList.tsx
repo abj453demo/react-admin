@@ -1,4 +1,6 @@
 /* eslint react/jsx-key: off */
+import { useBreakpoint } from '@salt-ds/core';
+import { UserGroupIcon } from '@salt-ds/icons';
 import PeopleIcon from '@mui/icons-material/People';
 import { useMediaQuery, Theme } from '@mui/material';
 import * as React from 'react';
