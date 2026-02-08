@@ -1,8 +1,7 @@
 /* eslint react/jsx-key: off */
-import { useBreakpoint } from '@salt-ds/core';
 import { UserGroupIcon } from '@salt-ds/icons';
 import PeopleIcon from '@mui/icons-material/People';
-import { useMediaQuery, Theme } from '@mui/material';
+import { useIsMediumDown } from '../utils/useResponsive';
 import * as React from 'react';
 import {
     BulkDeleteWithConfirmButton,
@@ -35,9 +34,7 @@ const UserBulkActionButtons = props => (
 );
 
 const UserList = () => {
-    const isSmall = useMediaQuery((theme: Theme) =>
-        theme.breakpoints.down('md')
-    );
+    const isSmall = useIsMediumDown();
     const { isPending, canAccess: canSeeRole } = useCanAccess({
         action: 'show',
         resource: 'users.role',
