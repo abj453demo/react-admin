@@ -11,7 +11,6 @@ import { Card as SaltCard, StackLayout, Collapsible } from '@salt-ds/core';
 import { Tree as SaltTree } from '@salt-ds/lab';
 import { ChevronUpIcon, ChevronDownIcon } from '@salt-ds/icons';
 import {
-    Box,
     List,
     ListItem,
     ListItemText,
@@ -26,11 +25,11 @@ const TagList = () => (
     <ListBase perPage={1000}>
         <StackLayout gap={0}>
             <ListActions />
-            <Box maxWidth="20em" marginTop="1em">
+            <div style={{ maxWidth: '20em', marginTop: '1em' }}>
                 <Card>
                     <TagTree />
                 </Card>
-            </Box>
+            </div>
         </StackLayout>
     </ListBase>
 );

@@ -42,7 +42,6 @@ import {
     FormField,
     FormFieldLabel,
 } from '@salt-ds/core';
-import { Box, BoxProps } from '@mui/material';
 import PostTitle from './PostTitle';
 import TagReferenceInput from './TagReferenceInput';
 
@@ -102,11 +101,6 @@ const EditActions = ({ hasShow }: EditActionsProps) => (
     </TopToolbar>
 );
 
-const SanitizedBox = ({
-    fullWidth,
-    ...props
-}: BoxProps & { fullWidth?: boolean }) => <Box {...props} />;
-
 const categories = [
     { name: 'Tech', id: 'tech' },
     { name: 'Lifestyle', id: 'lifestyle' },
@@ -116,12 +110,9 @@ const PostEdit = () => (
     <Edit title={<PostTitle />} actions={<EditActions />}>
         <TabbedForm defaultValues={{ average_note: 0 }} warnWhenUnsavedChanges>
             <TabbedForm.Tab label="post.form.summary">
-                <SanitizedBox
-                    display="flex"
-                    flexDirection="column"
-                    width="100%"
-                    justifyContent="space-between"
-                    fullWidth
+                <FlexLayout
+                    direction="column"
+                    style={{ width: '100%', justifyContent: 'space-between' }}
                 >
                     <TextInput InputProps={{ disabled: true }} source="id" />
                     <TextInput
@@ -129,7 +120,7 @@ const PostEdit = () => (
                         validate={required()}
                         resettable
                     />
-                </SanitizedBox>
+                </FlexLayout>
                 <TextInput
                     multiline
                     source="teaser"
