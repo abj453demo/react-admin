@@ -106,9 +106,10 @@ const CreateTag = () => {
                     <Button variant="secondary" type="submit">
                         Save
                     </Button>
-                    <Button variant="secondary" onClick={onCancel}>
+                    <Button variant="secondary" type="button" onClick={onCancel}>
                         Cancel
                     </Button>
+
                 </DialogActions>
             </form>
         </Dialog>
