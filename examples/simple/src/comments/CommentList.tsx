@@ -14,9 +14,8 @@ import {
     CardContent,
     CardHeader,
     Grid,
-    useMediaQuery,
-    Theme,
 } from '@mui/material';
+import { useIsMediumDown } from '../utils/useResponsive';
 import jsonExport from 'jsonexport/dist';
 import {
     ListBase,
@@ -160,7 +159,7 @@ const CommentList = () => (
 );
 
 const ListView = () => {
-    const isSmall = useMediaQuery<Theme>(theme => theme.breakpoints.down('md'));
+    const isSmall = useIsMediumDown();
     const { defaultTitle } = useListContext();
     return (
         <>
