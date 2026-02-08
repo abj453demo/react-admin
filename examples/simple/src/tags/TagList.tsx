@@ -8,7 +8,7 @@ import {
     Title,
 } from 'react-admin';
 import { Card as SaltCard, StackLayout, Collapsible } from '@salt-ds/core';
-import { Tree } from '@salt-ds/lab';
+import { Tree as SaltTree } from '@salt-ds/lab';
 import { ChevronUpIcon, ChevronDownIcon } from '@salt-ds/icons';
 import {
     Box,
