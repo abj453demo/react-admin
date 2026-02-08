@@ -14,8 +14,9 @@ import {
     DialogContent,
     DialogActions,
     Input,
+    FormField,
+    FormFieldLabel,
 } from '@salt-ds/core';
-import { TextField as MuiTextField } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
 
 const TagReferenceInput = ({
@@ -86,12 +87,16 @@ const CreateTag = () => {
         <Dialog open onOpenChange={open => !open && onCancel()}>
             <form onSubmit={handleSubmit}>
                 <DialogContent>
-                    <MuiTextField
-                        label="New tag"
-                        value={value}
-                        onChange={event => setValue(event.target.value)}
-                        autoFocus
-                    />
+                    <FormField>
+                        <FormFieldLabel>New tag</FormFieldLabel>
+                        <Input
+                            value={value}
+                            onChange={(
+                                event: React.ChangeEvent<HTMLInputElement>
+                            ) => setValue(event.target.value)}
+                            autoFocus
+                        />
+                    </FormField>
                 </DialogContent>
                 <DialogActions>
                     <Button variant="secondary" type="submit">
